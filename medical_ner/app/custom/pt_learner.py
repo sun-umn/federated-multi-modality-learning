@@ -1,0 +1,330 @@
+# Copyright (c) 2021-2022, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import os.path
+
+import torch
+from pt_constants import PTConstants
+from simple_network import BertModel
+from dataset import DataSequence
+from torch import nn
+from torch.optim import SGD
+from torch.utils.data.dataloader import DataLoader
+from torch.utils.tensorboard import SummaryWriter
+from torchvision.datasets import CIFAR10
+from torchvision.transforms import Compose, Normalize, ToTensor
+import pandas as pd
+from transformers import BertTokenizerFast
+
+from nvflare.apis.dxo import DXO, DataKind, MetaKey, from_shareable
+from nvflare.apis.fl_constant import FLContextKey, ReservedKey, ReturnCode
+from nvflare.apis.fl_context import FLContext
+from nvflare.apis.shareable import Shareable, make_reply
+from nvflare.apis.signal import Signal
+from nvflare.app_common.abstract.learner_spec import Learner
+from nvflare.app_common.abstract.model import (
+    ModelLearnable,
+    ModelLearnableKey,
+    make_model_learnable,
+    model_learnable_to_dxo,
+)
+from nvflare.app_common.app_constant import AppConstants
+from nvflare.app_common.pt.pt_fed_utils import PTModelPersistenceFormatManager
+
+
+class PTLearner(Learner):
+    def __init__(self, data_path="~/data", lr=0.01, epochs=5, bs=4, exclude_vars=None, analytic_sender_id="analytic_sender"):
+        """Simple PyTorch Learner that trains and validates a simple network on the CIFAR10 dataset.
+
+        Args:
+            lr (float, optional): Learning rate. Defaults to 0.01
+            epochs (int, optional): Epochs. Defaults to 5
+            exclude_vars (list): List of variables to exclude during model loading.
+            analytic_sender_id: id of `AnalyticsSender` if configured as a client component.
+                If configured, TensorBoard events will be fired. Defaults to "analytic_sender".
+        """
+        super().__init__()
+        self.writer = None
+        self.persistence_manager = None
+        self.default_train_conf = None
+        self.test_loader = None
+        self.test_data = None
+        self.n_iterations = None
+        self.train_loader = None
+        self.train_dataset = None
+        self.optimizer = None
+        self.loss = None
+        self.device = None
+        self.model = None
+        self.data_path = data_path
+        self.lr = lr
+        self.bs = bs
+        self.epochs = epochs
+        self.exclude_vars = exclude_vars
+        self.analytic_sender_id = analytic_sender_id
+        self.dataprallel = False
+
+    def initialize(self, parts: dict, fl_ctx: FLContext):
+        client_name = fl_ctx.get_identity_name()
+        
+        # Training setup
+        # self.model = BertModel(num_labels = len(unique_labels))
+        self.model = BertModel()
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if self.dataprallel:
+            self.model = nn.DataParallel(self.model)
+        self.model.to(self.device)
+        self.loss = nn.CrossEntropyLoss()
+        self.optimizer = SGD(self.model.parameters(), lr=self.lr, momentum=0.9)
+
+        # Create CIFAR10 dataset for training.
+                
+        df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv")).sample(100)
+        df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv")).sample(100)
+
+
+        self.train_dataset = DataSequence(df_train)
+        self.test_dataset = DataSequence(df_val)
+        self.train_loader = DataLoader(self.train_dataset, batch_size=self.bs, shuffle=True)
+        self.test_loader = DataLoader(self.test_dataset, batch_size=self.bs, shuffle=False)
+        self.n_iterations = len(self.train_loader)
+
+        # Set up the persistence manager to save PT model.
+        # The default training configuration is used by persistence manager in case no initial model is found.
+        self.default_train_conf = {"train": {"model": type(self.model).__name__}}
+        self.persistence_manager = PTModelPersistenceFormatManager(
+            data=self.model.module.state_dict() if self.dataprallel else self.model.state_dict(), default_train_conf=self.default_train_conf
+        )
+
+        # Tensorboard streaming setup
+        self.writer = parts.get(self.analytic_sender_id)  # user configuration from config_fed_client.json
+        if not self.writer:  # else use local TensorBoard writer only
+            self.writer = SummaryWriter(fl_ctx.get_prop(FLContextKey.APP_ROOT))
+        
+        print("-"*50, "initialize", "-"*50)
+        print(
+            f'''
+            load data from {self.data_path}: {client_name+"_train.csv"} and {client_name+"_val.csv"}
+            size of the data: 
+            {client_name+"_train.csv"}: {df_train.shape[0]}
+            {client_name+"_val.csv"}: {df_val.shape[0]}
+            '''
+        )
+        
+
+    def train(self, data: Shareable, fl_ctx: FLContext, abort_signal: Signal) -> Shareable:
+        print("-"*50, "train start", "-"*50)
+        # Get model weights
+        try:
+            dxo = from_shareable(data)
+        except:
+            self.log_error(fl_ctx, "Unable to extract dxo from shareable.")
+            return make_reply(ReturnCode.BAD_TASK_DATA)
+
+        # Ensure data kind is weights.
+        if not dxo.data_kind == DataKind.WEIGHTS:
+            self.log_error(fl_ctx, f"data_kind expected WEIGHTS but got {dxo.data_kind} instead.")
+            return make_reply(ReturnCode.BAD_TASK_DATA)
+
+        # Convert weights to tensor. Run training
+        torch_weights = {k: torch.as_tensor(v) for k, v in dxo.data.items()}
+        # Set the model weights
+        if self.dataprallel:
+            self.model.module.load_state_dict(state_dict=torch_weights)
+        else:
+            self.model.load_state_dict(state_dict=torch_weights)
+        self.local_train(fl_ctx, abort_signal)
+
+        # Check the abort_signal after training.
+        # local_train returns early if abort_signal is triggered.
+        if abort_signal.triggered:
+            return make_reply(ReturnCode.TASK_ABORTED)
+
+        # Save the local model after training.
+        self.save_local_model(fl_ctx)
+
+        # Get the new state dict and send as weights
+        new_weights = self.model.module.state_dict() if self.dataprallel else self.model.state_dict()
+        new_weights = {k: v.cpu().numpy() for k, v in new_weights.items()}
+
+        outgoing_dxo = DXO(
+            data_kind=DataKind.WEIGHTS, data=new_weights, meta={MetaKey.NUM_STEPS_CURRENT_ROUND: self.n_iterations}
+        )
+        
+        return outgoing_dxo.to_shareable()
+
+    def local_train(self, fl_ctx, abort_signal):
+        print("-"*50, "local training", "-"*50)
+        # Basic training
+        for epoch in range(self.epochs):
+            self.model.train()
+            total_acc_train = 0
+            total_loss_train = 0
+            train_total = 0
+            count = 0
+            for batch in self.train_loader:
+                count += 1
+                if abort_signal.triggered:
+                    return
+
+                train_data, train_label = batch[0].to(self.device), batch[1].to(self.device)
+                train_total += train_label.shape[0]
+                mask = train_data['attention_mask'].squeeze(1).to(self.device)
+                input_id = train_data['input_ids'].squeeze(1).to(self.device)
+                # print(mask.shape, input_id.shape, train_label.shape)
+                self.optimizer.zero_grad()
+                loss, logits = self.model(input_id, mask, train_label)
+                # print(loss.shape, logits.shape)
+                # asdf
+                loss.backward()
+                self.optimizer.step()
+                
+                for i in range(logits.shape[0]):
+                    logits_clean = logits[i][train_label[i] != -100]
+                    label_clean = train_label[i][train_label[i] != -100].cpu().detach().numpy()
+                    predictions = logits_clean.argmax(dim=1).cpu().detach().numpy()
+                    acc = (predictions == label_clean).mean()
+                    total_acc_train += acc
+                    total_loss_train += loss.item()
+                
+
+                if count % 3000 == 0:
+                    self.log_info(
+                        fl_ctx, f"Epoch: {epoch}/{self.epochs}, Iteration: {count}, " f"Loss: {total_loss_train / train_total: .3f} | Accuracy: {total_acc_train / train_total: .3f}"
+                    )
+                    running_loss = 0.0
+
+                # Stream training loss at each step
+                current_step = len(self.train_loader) * epoch + count
+                # self.writer.add_scalar("train_loss", loss.item(), current_step)
+
+            # Stream validation accuracy at the end of each epoch
+            
+            ## training accuracy
+            metric = 1.0* total_acc_train / train_total
+            self.writer.add_scalar("training_accuracy", metric.item(), epoch)
+            self.writer.add_scalar("train_loss", total_loss_train/train_total, epoch)
+            
+            val_metric, val_loss = self.local_validate(abort_signal)
+            self.writer.add_scalar("validation_accuracy", val_metric.item(), epoch)
+            self.writer.add_scalar("train_loss", val_loss, epoch)
+
+    def get_model_for_validation(self, model_name: str, fl_ctx: FLContext) -> Shareable:
+        print("-"*50, "get model for validation", "-"*50)
+        run_dir = fl_ctx.get_engine().get_workspace().get_run_dir(fl_ctx.get_job_id())
+        models_dir = os.path.join(run_dir, PTConstants.PTModelsDir)
+        if not os.path.exists(models_dir):
+            return None
+        model_path = os.path.join(models_dir, PTConstants.PTLocalModelName)
+
+        self.persistence_manager = PTModelPersistenceFormatManager(
+            data=torch.load(model_path), default_train_conf=self.default_train_conf
+        )
+        ml = self.persistence_manager.to_model_learnable(exclude_vars=self.exclude_vars)
+
+        # Get the model parameters and create dxo from it
+        dxo = model_learnable_to_dxo(ml)
+        return dxo.to_shareable()
+
+    def validate(self, data: Shareable, fl_ctx: FLContext, abort_signal: Signal) -> Shareable:
+        print("-"*50, "validate", "-"*50)
+        model_owner = fl_ctx.get_identity_name()
+        try:
+            try:
+                dxo = from_shareable(data)
+            except:
+                self.log_error(fl_ctx, "Error in extracting dxo from shareable.")
+                return make_reply(ReturnCode.BAD_TASK_DATA)
+
+            # Ensure data_kind is weights.
+            if not dxo.data_kind == DataKind.WEIGHTS:
+                self.log_exception(fl_ctx, f"DXO is of type {dxo.data_kind} but expected type WEIGHTS.")
+                return make_reply(ReturnCode.BAD_TASK_DATA)
+
+            if isinstance(dxo.data, ModelLearnable):
+                dxo.data = dxo.data[ModelLearnableKey.WEIGHTS]
+
+            # Extract weights and ensure they are tensor.
+            model_owner = data.get_header(AppConstants.MODEL_OWNER, fl_ctx.get_identity_name())
+            weights = {k: torch.as_tensor(v, device=self.device) for k, v in dxo.data.items()}
+
+            if self.dataprallel:
+                self.model.module.load_state_dict(weights)
+            else:
+                self.model.load_state_dict(weights)
+
+            # Get validation accuracy
+            val_accuracy = self.local_validate(abort_signal)
+            if abort_signal.triggered:
+                return make_reply(ReturnCode.TASK_ABORTED)
+
+            self.log_info(
+                fl_ctx,
+                f"Accuracy when validating {model_owner}'s model on"
+                f" {fl_ctx.get_identity_name()}"
+                f"s data: {val_accuracy}",
+            )
+
+            dxo = DXO(data_kind=DataKind.METRICS, data={"val_acc": val_accuracy})
+            return dxo.to_shareable()
+        except:
+            self.log_exception(fl_ctx, f"Exception in validating model from {model_owner}")
+            return make_reply(ReturnCode.EXECUTION_EXCEPTION)
+
+    def local_validate(self, abort_signal):
+        print("-"*50, "local validate", "-"*50)
+        self.model.eval()
+        with torch.no_grad():
+            total_acc_test = 0
+            total_loss_test = 0
+            test_total = 0
+            for test_data, test_label in self.test_loader:
+                if abort_signal.triggered:
+                    return
+                test_total += test_label.shape[0]
+                mask = test_data['attention_mask'].squeeze(1).to(self.device)
+                input_id = test_data['input_ids'].squeeze(1).to(self.device)
+                test_label = test_label.to(self.device)
+                self.optimizer.zero_grad()
+
+                loss, logits = self.model(input_id, mask, test_label)
+                
+                for i in range(logits.shape[0]):
+                    logits_clean = logits[i][test_label[i] != -100]
+                    label_clean = test_label[i][test_label[i] != -100].cpu().detach().numpy()
+
+                    predictions = logits_clean.argmax(dim=1).cpu().detach().numpy()
+                    acc = (predictions == label_clean).mean()
+
+                    total_acc_test += acc
+                    total_loss_test += loss.item()
+            
+            
+            metric = 1.0 * total_acc_test / float(test_total)
+            loss = total_loss_test/test_total
+        return metric, loss
+
+    def save_local_model(self, fl_ctx: FLContext):
+        print("-"*50, "save local model", "-"*50)
+        run_dir = fl_ctx.get_engine().get_workspace().get_run_dir(fl_ctx.get_prop(ReservedKey.RUN_NUM))
+        models_dir = os.path.join(run_dir, PTConstants.PTModelsDir)
+        if not os.path.exists(models_dir):
+            os.makedirs(models_dir)
+        model_path = os.path.join(models_dir, PTConstants.PTLocalModelName)
+        if self.dataprallel:
+            ml = make_model_learnable(self.model.module.state_dict(), {})
+        else:
+            ml = make_model_learnable(self.model.state_dict(), {})
+        self.persistence_manager.update(ml)
+        torch.save(self.persistence_manager.to_persistence_dict(), model_path)

@@ -1,0 +1,78 @@
+2022-11-17 08:06:30,161 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
+2022-11-17 08:06:30,161 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
+2022-11-17 08:06:30,202 - Communicator - INFO - Received from simulator_server server  (250515 Bytes). getTask time: 0.039237260818481445 seconds
+2022-11-17 08:06:30,262 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2022-11-17 08:06:30,271 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4
+2022-11-17 08:06:30,272 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-11-17 08:06:30,272 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Client trainer got task: train
+2022-11-17 08:06:33,282 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Accuracy when validating ?'s model on site-2s data: 0.1017
+2022-11-17 08:06:33,391 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Epoch: 0/5, Iteration: 0, Loss: 2.414883921543757e-05
+2022-11-17 08:06:52,004 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Epoch: 1/5, Iteration: 0, Loss: 1.6292537252108255e-05
+2022-11-17 08:07:10,722 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Epoch: 2/5, Iteration: 0, Loss: 1.3826039930184682e-05
+2022-11-17 08:07:29,090 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Epoch: 3/5, Iteration: 0, Loss: 1.3681242863337198e-05
+2022-11-17 08:07:47,835 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: Epoch: 4/5, Iteration: 0, Loss: 1.1405061930418015e-05
+2022-11-17 08:08:06,221 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: finished processing task
+2022-11-17 08:08:06,222 - FederatedClient - INFO - Starting to push execute result.
+2022-11-17 08:08:06,225 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-11-17 08:08:06,270 - Communicator - INFO - Received comments: simulator_server Received from site-2 (250840 Bytes, 1668672486 seconds). SubmitUpdate time: 0.04501223564147949 seconds
+2022-11-17 08:08:06,322 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]: result sent to server for task: name=train, id=53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4
+2022-11-17 08:08:06,323 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:08,428 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:10,533 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:12,638 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:14,743 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:16,848 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:18,859 - Communicator - INFO - Received from simulator_server server  (586 Bytes). getTask time: 0.005486249923706055 seconds
+2022-11-17 08:08:18,953 - FederatedClient - INFO - pull_task completed. Task name:submit_model Status:True 
+2022-11-17 08:08:18,953 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=submit_model, id=fe727b47-b5e4-4b5f-9770-e8a90d334865
+2022-11-17 08:08:18,954 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=submit_model, task_id=fe727b47-b5e4-4b5f-9770-e8a90d334865]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-11-17 08:08:18,955 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=submit_model, task_id=fe727b47-b5e4-4b5f-9770-e8a90d334865]: Client trainer got task: submit_model
+2022-11-17 08:08:18,960 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=submit_model, task_id=fe727b47-b5e4-4b5f-9770-e8a90d334865]: finished processing task
+2022-11-17 08:08:18,961 - FederatedClient - INFO - Starting to push execute result.
+2022-11-17 08:08:18,964 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-11-17 08:08:19,010 - Communicator - INFO - Received comments: simulator_server Received from site-2 (250784 Bytes, 1668672499 seconds). SubmitUpdate time: 0.0455172061920166 seconds
+2022-11-17 08:08:19,061 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=submit_model, task_id=fe727b47-b5e4-4b5f-9770-e8a90d334865]: result sent to server for task: name=submit_model, id=fe727b47-b5e4-4b5f-9770-e8a90d334865
+2022-11-17 08:08:19,062 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:21,108 - Communicator - INFO - Received from simulator_server server  (250549 Bytes). getTask time: 0.039475202560424805 seconds
+2022-11-17 08:08:21,168 - FederatedClient - INFO - pull_task completed. Task name:validate Status:True 
+2022-11-17 08:08:21,176 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=validate, id=bd681675-5448-47b3-bae1-dfaaab8f820d
+2022-11-17 08:08:21,178 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=bd681675-5448-47b3-bae1-dfaaab8f820d]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-11-17 08:08:21,178 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=bd681675-5448-47b3-bae1-dfaaab8f820d]: Client trainer got task: validate
+2022-11-17 08:08:23,029 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=bd681675-5448-47b3-bae1-dfaaab8f820d]: Accuracy when validating SRV_FL_global_model.pt's model on site-2s data: 0.5087
+2022-11-17 08:08:23,029 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=bd681675-5448-47b3-bae1-dfaaab8f820d]: finished processing task
+2022-11-17 08:08:23,030 - FederatedClient - INFO - Starting to push execute result.
+2022-11-17 08:08:23,032 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-11-17 08:08:23,039 - Communicator - INFO - Received comments: simulator_server Received from site-2 (959 Bytes, 1668672503 seconds). SubmitUpdate time: 0.006953239440917969 seconds
+2022-11-17 08:08:23,130 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=bd681675-5448-47b3-bae1-dfaaab8f820d]: result sent to server for task: name=validate, id=bd681675-5448-47b3-bae1-dfaaab8f820d
+2022-11-17 08:08:23,131 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:25,176 - Communicator - INFO - Received from simulator_server server  (250517 Bytes). getTask time: 0.040253639221191406 seconds
+2022-11-17 08:08:25,235 - FederatedClient - INFO - pull_task completed. Task name:validate Status:True 
+2022-11-17 08:08:25,244 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=validate, id=59777f84-65dd-4408-aff8-9049f6c06bd1
+2022-11-17 08:08:25,245 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=59777f84-65dd-4408-aff8-9049f6c06bd1]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-11-17 08:08:25,245 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=59777f84-65dd-4408-aff8-9049f6c06bd1]: Client trainer got task: validate
+2022-11-17 08:08:27,102 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=59777f84-65dd-4408-aff8-9049f6c06bd1]: Accuracy when validating site-2's model on site-2s data: 0.6069
+2022-11-17 08:08:27,103 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=59777f84-65dd-4408-aff8-9049f6c06bd1]: finished processing task
+2022-11-17 08:08:27,104 - FederatedClient - INFO - Starting to push execute result.
+2022-11-17 08:08:27,105 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-11-17 08:08:27,112 - Communicator - INFO - Received comments: simulator_server Received from site-2 (943 Bytes, 1668672507 seconds). SubmitUpdate time: 0.0068700313568115234 seconds
+2022-11-17 08:08:27,204 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=59777f84-65dd-4408-aff8-9049f6c06bd1]: result sent to server for task: name=validate, id=59777f84-65dd-4408-aff8-9049f6c06bd1
+2022-11-17 08:08:27,205 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:29,252 - Communicator - INFO - Received from simulator_server server  (250517 Bytes). getTask time: 0.04145407676696777 seconds
+2022-11-17 08:08:29,309 - FederatedClient - INFO - pull_task completed. Task name:validate Status:True 
+2022-11-17 08:08:29,319 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=validate, id=9b63ab83-376e-4d91-824b-88178649c538
+2022-11-17 08:08:29,320 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=9b63ab83-376e-4d91-824b-88178649c538]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-11-17 08:08:29,321 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=9b63ab83-376e-4d91-824b-88178649c538]: Client trainer got task: validate
+2022-11-17 08:08:31,159 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=9b63ab83-376e-4d91-824b-88178649c538]: Accuracy when validating site-1's model on site-2s data: 0.6069
+2022-11-17 08:08:31,160 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=9b63ab83-376e-4d91-824b-88178649c538]: finished processing task
+2022-11-17 08:08:31,160 - FederatedClient - INFO - Starting to push execute result.
+2022-11-17 08:08:31,162 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-11-17 08:08:31,169 - Communicator - INFO - Received comments: simulator_server Received from site-2 (943 Bytes, 1668672511 seconds). SubmitUpdate time: 0.007596731185913086 seconds
+2022-11-17 08:08:31,261 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=validate, task_id=9b63ab83-376e-4d91-824b-88178649c538]: result sent to server for task: name=validate, id=9b63ab83-376e-4d91-824b-88178649c538
+2022-11-17 08:08:31,261 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:33,366 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:35,375 - Communicator - INFO - Received from simulator_server server  (348 Bytes). getTask time: 0.0037260055541992188 seconds
+2022-11-17 08:08:35,470 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2022-11-17 08:08:35,471 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2022-11-17 08:08:35,471 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-11-17 08:08:35,471 - ClientTaskWorker - INFO - End the Simulator run.
+2022-11-17 08:08:35,472 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 

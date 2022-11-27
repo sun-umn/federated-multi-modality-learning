@@ -1,0 +1,15 @@
+[E:a5b6e073-7d8c-4227-a324-24205b93db26][R:5b01efcb-3998-4d30-a7b4-1ac757ec78cf][T:2022-11-17 08:06:30.271387][S:?][J:simulate_job][A:train#53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]received task from server
+[E:1987573d-2bd2-4f3e-bdc0-d6bb882b91b3][T:2022-11-17 08:06:30.272668][S:?][J:simulate_job][A:train#53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]invoked executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+[E:fe75237b-2df1-4ac0-83e5-fca448306914][R:5b01efcb-3998-4d30-a7b4-1ac757ec78cf][T:2022-11-17 08:08:06.221672][S:?][J:simulate_job][A:train#53cc9ef9-4a1a-47fd-86dc-bad2949ef0d4]submit result OK
+[E:d2a69c5d-1d11-47c1-9999-1446e156cbdc][R:e01c2ac7-a65d-4e90-af0a-5a57262dc1d2][T:2022-11-17 08:08:18.953847][S:?][J:simulate_job][A:submit_model#fe727b47-b5e4-4b5f-9770-e8a90d334865]received task from server
+[E:5d47c805-8c27-4d49-9337-b599cf85d5e0][T:2022-11-17 08:08:18.955017][S:?][J:simulate_job][A:submit_model#fe727b47-b5e4-4b5f-9770-e8a90d334865]invoked executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+[E:61744972-c94f-4250-a644-cb937acc6309][R:e01c2ac7-a65d-4e90-af0a-5a57262dc1d2][T:2022-11-17 08:08:18.960599][S:?][J:simulate_job][A:submit_model#fe727b47-b5e4-4b5f-9770-e8a90d334865]submit result OK
+[E:7355cdc6-acf2-49fa-9c40-f4b09fd6b024][R:98503550-3ad0-469c-a61b-737e7cc675c9][T:2022-11-17 08:08:21.177304][S:?][J:simulate_job][A:validate#bd681675-5448-47b3-bae1-dfaaab8f820d]received task from server
+[E:abc090c2-4736-466a-bf6e-0f56a6b2588a][T:2022-11-17 08:08:21.178498][S:?][J:simulate_job][A:validate#bd681675-5448-47b3-bae1-dfaaab8f820d]invoked executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+[E:170df68d-6d4f-41a8-a2b7-a7cd698e7b14][R:98503550-3ad0-469c-a61b-737e7cc675c9][T:2022-11-17 08:08:23.029863][S:?][J:simulate_job][A:validate#bd681675-5448-47b3-bae1-dfaaab8f820d]submit result OK
+[E:4af2ba1f-3a80-498c-8cc4-967c67c96f42][R:6373d47c-0dd2-4850-a033-0b0ab299f2cc][T:2022-11-17 08:08:25.244503][S:?][J:simulate_job][A:validate#59777f84-65dd-4408-aff8-9049f6c06bd1]received task from server
+[E:fdad3975-ff31-4f02-89f0-cd1fcca5d6d9][T:2022-11-17 08:08:25.245675][S:?][J:simulate_job][A:validate#59777f84-65dd-4408-aff8-9049f6c06bd1]invoked executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+[E:599383c0-7758-4532-9795-96834c100604][R:6373d47c-0dd2-4850-a033-0b0ab299f2cc][T:2022-11-17 08:08:27.103526][S:?][J:simulate_job][A:validate#59777f84-65dd-4408-aff8-9049f6c06bd1]submit result OK
+[E:9337824d-1eca-4f41-9f99-8ba3c2f039ed][R:a4d9ec03-5fbc-4a1c-b6a8-3b7483ac8a6d][T:2022-11-17 08:08:29.319788][S:?][J:simulate_job][A:validate#9b63ab83-376e-4d91-824b-88178649c538]received task from server
+[E:68f7141d-efeb-41d7-8dc2-a95774134750][T:2022-11-17 08:08:29.321121][S:?][J:simulate_job][A:validate#9b63ab83-376e-4d91-824b-88178649c538]invoked executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+[E:450fc0c9-7987-4f03-b26e-59cd92b9415f][R:a4d9ec03-5fbc-4a1c-b6a8-3b7483ac8a6d][T:2022-11-17 08:08:31.160187][S:?][J:simulate_job][A:validate#9b63ab83-376e-4d91-824b-88178649c538]submit result OK

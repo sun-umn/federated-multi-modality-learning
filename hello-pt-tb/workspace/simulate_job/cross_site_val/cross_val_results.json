@@ -1,0 +1,1 @@
+{"site-2": {"SRV_FL_global_model.pt": {"val_acc": 0.5087}, "site-2": {"val_acc": 0.6069}, "site-1": {"val_acc": 0.6069}}, "site-1": {"SRV_FL_global_model.pt": {"val_acc": 0.5087}, "site-2": {"val_acc": 0.6069}, "site-1": {"val_acc": 0.6069}}}

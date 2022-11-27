@@ -1,29 +1,3 @@
-
-NER dataset from Kaggle: https://www.kaggle.com/datasets/rajnathpatel/ner-data
-code inherite from: https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a
->
-    geo for geographical entity
-    org for organization entity
-    per for person entity
-    gpe for geopolitical entity
-    tim for time indicator entity
-    art for artifact entity
-    eve for event entity
-    nat for natural phenomenon entity
-    O is assigned if a word doesn’t belong to any entity.
->
-
-aggregate B/I 
-
-exactly match (strict)
-
-lenient match (loose)
-
-seqeval
-
-try bert large
-
-
 # PyTorch with Tensorboard Streaming
 
 Example of using [NVIDIA FLARE](https://nvflare.readthedocs.io/en/main/index.html) to train an image classifier using federated averaging ([FedAvg]([FedAvg](https://arxiv.org/abs/1602.05629))) and [PyTorch](https://pytorch.org/) as the deep learning training framework. This example also highlights the TensorBoard streaming capability from the clients to the server.

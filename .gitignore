@@ -1,0 +1,8 @@
+hello-pt/
+hello-tf2/
+hello-pt-tb/
+tf1_ner/
+
+medical_ner/small_data/
+medical_ner/workspace/
+*.pt

@@ -7,8 +7,7 @@ class BertModel(nn.Module):
 
         super(BertModel, self).__init__()
 
-        self.bert = BertForTokenClassification.from_pretrained('bert-base-cased', num_labels=17)
-        # self.bert = BertModel.from_pretrained('bert-base-uncased')
+        self.bert = BertForTokenClassification.from_pretrained('bert-large-cased', num_labels=17)
 
     def forward(self, input_id, mask, label):
 

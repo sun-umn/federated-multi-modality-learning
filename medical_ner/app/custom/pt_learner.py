@@ -42,6 +42,8 @@ from nvflare.app_common.abstract.model import (
 from nvflare.app_common.app_constant import AppConstants
 from nvflare.app_common.pt.pt_fed_utils import PTModelPersistenceFormatManager
 
+from seqeval.metrics import classification_report
+
 
 class PTLearner(Learner):
     def __init__(self, data_path="~/data", lr=0.01, epochs=5, bs=4, exclude_vars=None, analytic_sender_id="analytic_sender"):
@@ -77,21 +79,22 @@ class PTLearner(Learner):
 
     def initialize(self, parts: dict, fl_ctx: FLContext):
         client_name = fl_ctx.get_identity_name()
+        self.client_name = fl_ctx.get_identity_name()
         
         # Training setup
         # self.model = BertModel(num_labels = len(unique_labels))
         self.model = BertModel()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if self.dataprallel:
-            self.model = nn.DataParallel(self.model)
+            self.model = nn.parallel.DistributedDataParallel(self.model)
         self.model.to(self.device)
         self.loss = nn.CrossEntropyLoss()
         self.optimizer = SGD(self.model.parameters(), lr=self.lr, momentum=0.9)
 
         # Create CIFAR10 dataset for training.
                 
-        df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv")).sample(100)
-        df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv")).sample(100)
+        df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
+        df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
 
 
         self.train_dataset = DataSequence(df_train)
@@ -112,7 +115,7 @@ class PTLearner(Learner):
         if not self.writer:  # else use local TensorBoard writer only
             self.writer = SummaryWriter(fl_ctx.get_prop(FLContextKey.APP_ROOT))
         
-        print("-"*50, "initialize", "-"*50)
+        print("-"*50, f"initialize: {self.client_name}", "-"*50)
         print(
             f'''
             load data from {self.data_path}: {client_name+"_train.csv"} and {client_name+"_val.csv"}
@@ -124,7 +127,7 @@ class PTLearner(Learner):
         
 
     def train(self, data: Shareable, fl_ctx: FLContext, abort_signal: Signal) -> Shareable:
-        print("-"*50, "train start", "-"*50)
+        print("-"*50, f"train start: {self.client_name}", "-"*50)
         # Get model weights
         try:
             dxo = from_shareable(data)
@@ -165,7 +168,7 @@ class PTLearner(Learner):
         return outgoing_dxo.to_shareable()
 
     def local_train(self, fl_ctx, abort_signal):
-        print("-"*50, "local training", "-"*50)
+        print("-"*50, f"local training: {self.client_name}", "-"*50)
         # Basic training
         for epoch in range(self.epochs):
             self.model.train()
@@ -216,12 +219,14 @@ class PTLearner(Learner):
             self.writer.add_scalar("training_accuracy", metric.item(), epoch)
             self.writer.add_scalar("train_loss", total_loss_train/train_total, epoch)
             
-            val_metric, val_loss = self.local_validate(abort_signal)
+            val_metric, val_loss, metric_summary = self.local_validate(abort_signal)
             self.writer.add_scalar("validation_accuracy", val_metric.item(), epoch)
             self.writer.add_scalar("train_loss", val_loss, epoch)
+            self.writer.add_text("summary", metric_summary, global_step=epoch)
+            print(metric_summary)
 
     def get_model_for_validation(self, model_name: str, fl_ctx: FLContext) -> Shareable:
-        print("-"*50, "get model for validation", "-"*50)
+        print("-"*50, f"get model for validation: {self.client_name}", "-"*50)
         run_dir = fl_ctx.get_engine().get_workspace().get_run_dir(fl_ctx.get_job_id())
         models_dir = os.path.join(run_dir, PTConstants.PTModelsDir)
         if not os.path.exists(models_dir):
@@ -238,7 +243,7 @@ class PTLearner(Learner):
         return dxo.to_shareable()
 
     def validate(self, data: Shareable, fl_ctx: FLContext, abort_signal: Signal) -> Shareable:
-        print("-"*50, "validate", "-"*50)
+        print("-"*50, f"validate: {self.client_name}", "-"*50)
         model_owner = fl_ctx.get_identity_name()
         try:
             try:
@@ -265,7 +270,7 @@ class PTLearner(Learner):
                 self.model.load_state_dict(weights)
 
             # Get validation accuracy
-            val_accuracy = self.local_validate(abort_signal)
+            val_accuracy, _, metric_summary = self.local_validate(abort_signal)
             if abort_signal.triggered:
                 return make_reply(ReturnCode.TASK_ABORTED)
 
@@ -283,12 +288,15 @@ class PTLearner(Learner):
             return make_reply(ReturnCode.EXECUTION_EXCEPTION)
 
     def local_validate(self, abort_signal):
-        print("-"*50, "local validate", "-"*50)
+        print("-"*50, f"local validate: {self.client_name}", "-"*50)
         self.model.eval()
         with torch.no_grad():
             total_acc_test = 0
             total_loss_test = 0
             test_total = 0
+            y_pred = []
+            y_true = []
+            label_map = self.train_loader.dataset.ids_to_labels
             for test_data, test_label in self.test_loader:
                 if abort_signal.triggered:
                     return
@@ -305,6 +313,8 @@ class PTLearner(Learner):
                     label_clean = test_label[i][test_label[i] != -100].cpu().detach().numpy()
 
                     predictions = logits_clean.argmax(dim=1).cpu().detach().numpy()
+                    y_pred.append([label_map[x.item()] for x in predictions])
+                    y_true.append([label_map[x.item()] for x in label_clean])
                     acc = (predictions == label_clean).mean()
 
                     total_acc_test += acc
@@ -313,10 +323,11 @@ class PTLearner(Learner):
             
             metric = 1.0 * total_acc_test / float(test_total)
             loss = total_loss_test/test_total
-        return metric, loss
+            metric_summary = classification_report(y_true, y_pred)
+        return metric, loss, metric_summary
 
     def save_local_model(self, fl_ctx: FLContext):
-        print("-"*50, "save local model", "-"*50)
+        print("-"*50, f"save local model: {self.client_name}", "-"*50)
         run_dir = fl_ctx.get_engine().get_workspace().get_run_dir(fl_ctx.get_prop(ReservedKey.RUN_NUM))
         models_dir = os.path.join(run_dir, PTConstants.PTModelsDir)
         if not os.path.exists(models_dir):

@@ -42,7 +42,7 @@ class DataSequence(torch.utils.data.Dataset):
             [unique_labels.add(i) for i in lb if i not in unique_labels]
         tokenizer = BertTokenizerFast.from_pretrained('bert-base-cased')
         labels_to_ids = {k: v for v, k in enumerate(sorted(unique_labels))}
-        ids_to_labels = {v: k for v, k in enumerate(sorted(unique_labels))}
+        self.ids_to_labels = {v: k for v, k in enumerate(sorted(unique_labels))}
 
         lb = [i.split() for i in df['labels'].values.tolist()]
         txt = df['text'].values.tolist()

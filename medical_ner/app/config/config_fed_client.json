@@ -29,7 +29,7 @@
         "data_path": "/workspace/src/data",
         "lr": 0.01,
         "epochs": 5,
-        "bs": 24,
+        "bs": 8,
         "analytic_sender_id": "analytic_sender"
       }
     },

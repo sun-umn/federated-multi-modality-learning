@@ -76,10 +76,19 @@ class PTLearner(Learner):
         self.exclude_vars = exclude_vars
         self.analytic_sender_id = analytic_sender_id
         self.dataprallel = False
+        
+
 
     def initialize(self, parts: dict, fl_ctx: FLContext):
         client_name = fl_ctx.get_identity_name()
         self.client_name = fl_ctx.get_identity_name()
+        
+        import numpy as np
+        import random
+        seed = 0
+        torch.manual_seed(seed)
+        np.random.seed(seed)
+        random.seed(seed)
         
         # Training setup
         # self.model = BertModel(num_labels = len(unique_labels))
@@ -176,6 +185,9 @@ class PTLearner(Learner):
             total_loss_train = 0
             train_total = 0
             count = 0
+            y_pred = []
+            y_true = []
+            label_map = self.train_loader.dataset.ids_to_labels
             for batch in self.train_loader:
                 count += 1
                 if abort_signal.triggered:
@@ -188,8 +200,6 @@ class PTLearner(Learner):
                 # print(mask.shape, input_id.shape, train_label.shape)
                 self.optimizer.zero_grad()
                 loss, logits = self.model(input_id, mask, train_label)
-                # print(loss.shape, logits.shape)
-                # asdf
                 loss.backward()
                 self.optimizer.step()
                 
@@ -197,6 +207,8 @@ class PTLearner(Learner):
                     logits_clean = logits[i][train_label[i] != -100]
                     label_clean = train_label[i][train_label[i] != -100].cpu().detach().numpy()
                     predictions = logits_clean.argmax(dim=1).cpu().detach().numpy()
+                    y_pred.append([label_map[x] for x in predictions])
+                    y_true.append([label_map[x] for x in label_clean])
                     acc = (predictions == label_clean).mean()
                     total_acc_train += acc
                     total_loss_train += loss.item()
@@ -214,16 +226,23 @@ class PTLearner(Learner):
 
             # Stream validation accuracy at the end of each epoch
             
+            
+            
             ## training accuracy
             metric = 1.0* total_acc_train / train_total
+            metric_summary = classification_report(y_true, y_pred)
             self.writer.add_scalar("training_accuracy", metric.item(), epoch)
             self.writer.add_scalar("train_loss", total_loss_train/train_total, epoch)
+            self.writer.add_text("summary/train", metric_summary, global_step=epoch)
             
-            val_metric, val_loss, metric_summary = self.local_validate(abort_signal)
+            val_metric, val_loss, val_metric_summary = self.local_validate(abort_signal)
             self.writer.add_scalar("validation_accuracy", val_metric.item(), epoch)
             self.writer.add_scalar("train_loss", val_loss, epoch)
-            self.writer.add_text("summary", metric_summary, global_step=epoch)
-            print(metric_summary)
+            self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
+            
+            print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nAcc: {metric.item()}", )
+            print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nAcc: {val_metric.item()}")
+            
 
     def get_model_for_validation(self, model_name: str, fl_ctx: FLContext) -> Shareable:
         print("-"*50, f"get model for validation: {self.client_name}", "-"*50)
@@ -320,7 +339,7 @@ class PTLearner(Learner):
                     total_acc_test += acc
                     total_loss_test += loss.item()
             
-            
+
             metric = 1.0 * total_acc_test / float(test_total)
             loss = total_loss_test/test_total
             metric_summary = classification_report(y_true, y_pred)

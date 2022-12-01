@@ -27,8 +27,8 @@
       "path": "pt_learner.PTLearner",
       "args": {
         "data_path": "/workspace/src/data",
-        "lr": 0.01,
-        "epochs": 5,
+        "lr": 5e-3,
+        "epochs": 20,
         "bs": 8,
         "analytic_sender_id": "analytic_sender"
       }

@@ -5,5 +5,5 @@ tf1_ner/
 
 medical_ner/small_data/
 medical_ner/workspace/
-*workspace/
+*workspace*/
 *.pt

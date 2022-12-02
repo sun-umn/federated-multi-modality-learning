@@ -42,7 +42,7 @@ $$
 
 ***recall***
 $$
-recall = \frac{TP}{TP + FN}
+recall=\frac{TP}{TP + FN}
 $$
 
 ***f1-score***
@@ -94,7 +94,7 @@ ___
 
 ## Preliminary Results
 ### site 1
-**training**
+**test performance**
 
 |   token      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
@@ -112,41 +112,23 @@ ___
 
 
 ### site 2
-**training**
+**test performance**
 
 |   token      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
-|         art  |     0.48   |   0.14  |    0.22  |     186 |
-|         eve  |     0.21   |   0.12  |    0.15  |     119 |
-|         geo  |     0.80   |   0.82  |    0.81  |   14566 |
-|         gpe  |     0.90   |   0.86  |    0.88  |    5444 |
-|         nat  |     0.25   |   0.01  |    0.02  |     102 |
-|         org  |     0.67   |   0.64  |    0.66  |    8239 |
-|         per  |     0.70   |   0.74  |    0.72  |    6927 |
-|         tim  |     0.79   |   0.73  |    0.76  |    6755 |
-|   micro avg  |     0.77   |   0.76  |    0.76  |   42338 |
-|   macro avg  |     0.60   |   0.51  |    0.53  |   42338 |
-|weighted avg  |     0.77   |   0.76  |    0.76  |   42338 |
-
-___
-
-## TODO
-- [x] aggregate B/I 
-- [ ] exactly match (strict)
-- [x] lenient match (loose)
-- [x] seqeval
-- [x] try bert large
+|         art  |     0.00   |   0.00  |    0.00  |      17 |
+|         eve  |     0.00   |   0.00  |    0.00  |      18 |
+|         geo  |     0.68   |   0.78  |    0.73  |    1733 |
+|         gpe  |     0.80   |   0.81  |    0.81  |     716 |
+|         nat  |     0.00   |   0.00  |    0.00  |      17 |
+|         org  |     0.61   |   0.51  |    0.56  |    1031 |
+|         per  |     0.65   |   0.72  |    0.68  |     883 |
+|         tim  |     0.72   |   0.66  |    0.69  |     866 |
+|   micro avg  |     0.69   |   0.69  |    0.69  |    5281 |
+|   macro avg  |     0.43   |   0.43  |    0.43  |    5281 |
+|weighted avg  |     0.68   |   0.69  |    0.68  |    5281 |
 
 
-## pending for GPU setup
-> <a href="https://docs.google.com/document/d/1ugYeOUtJZtWraL7Zjk0D3axNl40wOb3-tsjb3HFaiLQ/edit">Link to the google doc</a>
-- [ ] setup nvflare on ahc-ie gpu server
-    - [ ] install pytorch container
-    - [ ] setup nvflare environment
-    - [ ] mount data to gpu server
+### FedAvg
 
-- [ ] deploy nvflare model
-    - [ ] package the pytorch container
-    - [ ] streamline the data preprocessing pipeline
-    - [ ] network test
-    - [ ] run real-world FL
+coming soon...

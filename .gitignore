@@ -1,10 +1,15 @@
+## example folders
 hello-pt/
 hello-tf2/
 hello-pt-tb/
 tf1_ner/
 
-medical_ner/small_data/
-medical_ner/workspace/
+## workspace folder to store results and simulations
 *workspace*/
+
+## log files and saved files
 *.pt
 *.txt
+*.png
+*.jpg
+*.jpeg

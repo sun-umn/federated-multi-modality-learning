@@ -1724,3 +1724,2305 @@ Acc: 0.0
 -------------------------------------------------- validate: site-2 --------------------------------------------------
 -------------------------------------------------- local validate: site-2 --------------------------------------------------
 2022-12-01 17:26:40,028 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: Accuracy when validating site-2's model on site-2s data: 0.0
+2022-12-01 17:53:46,919 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 17:54:02,494 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 17:54:56,504 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 17:55:12,074 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:22:07,773 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:22:32,331 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:23:16,360 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:23:41,918 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:50:27,610 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:50:57,167 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:51:37,198 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 18:52:06,754 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:18:45,460 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:19:26,008 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:19:55,040 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:20:35,596 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:47:05,297 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:47:55,857 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:48:13,879 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 19:49:05,444 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:15:16,147 - SimulatorServer - INFO - getting AuxCommunicate request
+-------------------------------------------------- train start: site-1 --------------------------------------------------
+-------------------------------------------------- local training: site-1 --------------------------------------------------
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501868
+val 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501845
+val 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501915
+val 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501878
+val 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501844
+val 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.83505960005019132022-12-01 20:16:25,732 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:16:27,707 - SimulatorServer - INFO - getting AuxCommunicate request
+-------------------------------------------------- train start: site-2 --------------------------------------------------
+-------------------------------------------------- local training: site-2 --------------------------------------------------
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959854
+val 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959875
+val 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959854
+val 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959864
+val 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959851
+val 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.83466680089599092022-12-01 20:17:37,295 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:43:35,992 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:44:45,580 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:45:01,572 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 20:46:11,157 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:11:57,851 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:13:06,435 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:13:34,424 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:14:44,011 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:40:16,664 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:41:26,252 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:42:06,261 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 21:43:15,845 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:08:35,518 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:09:45,102 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:10:38,141 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:11:47,721 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:36:49,317 - SimulatorServer - INFO - getting AuxCommunicate request
+
+val 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501852
+val 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501843
+val 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501894
+val 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501872
+val 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501882
+val 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.83086506800705732022-12-01 22:37:58,899 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:39:07,965 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 22:40:17,546 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:05:09,110 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:06:17,694 - SimulatorServer - INFO - getting AuxCommunicate request
+
+val 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959913
+val 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959884
+val 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.834666800895986
+val 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959873
+val 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959871
+val 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------2022-12-01 23:07:39,766 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:08:50,357 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:33:26,911 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:34:35,492 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:36:11,581 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-01 23:37:21,157 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:01:46,712 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:02:55,289 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:04:41,380 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:05:50,963 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:30:01,497 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:31:10,080 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:33:07,173 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:34:16,755 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:58:16,279 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 00:59:25,865 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:01:33,935 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:02:43,516 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:26:33,048 - SimulatorServer - INFO - getting AuxCommunicate request
+
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 11/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501885
+val 11/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 12/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501861
+val 12/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 13/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501893
+val 13/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 14/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501878
+val 14/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 15/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.835059600050188
+val 15/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 16/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501922022-12-02 01:27:42,629 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:30:04,707 - SimulatorServer - INFO - getting AuxCommunicate request
+
+training 11/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959883
+val 11/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 12/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959864
+val 12/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 13/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959861
+val 13/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 14/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959877
+val 14/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 15/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959848
+val 15/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 16/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.834666800895987
+val 16/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.02022-12-02 01:31:15,292 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:54:52,814 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:56:02,398 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:58:41,481 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 01:59:51,064 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:23:10,580 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:24:20,159 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:27:14,253 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:28:23,835 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:51:25,367 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:52:34,956 - SimulatorServer - INFO - getting AuxCommunicate request
+
+val 16/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 17/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501888
+val 17/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 18/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.835059600050184
+val 18/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 19/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501876
+val 19/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- save local model: site-1 --------------------------------------------------
+2022-12-02 02:52:36,688 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=5fd4b4bb-1687-4d81-80da-24a385d3f71b]: finished processing task
+2022-12-02 02:52:36,690 - FederatedClient - INFO - Starting to push execute result.
+2022-12-02 02:52:38,998 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-12-02 02:53:49,888 - SimulatorServer - INFO - received update from simulator_server_site-1_0 (1330282808 Bytes, 1669949629 seconds)
+2022-12-02 02:53:49,889 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job]: got result from client site-1 for task: name=train, id=5fd4b4bb-1687-4d81-80da-24a385d3f71b
+2022-12-02 02:53:49,889 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=5fd4b4bb-1687-4d81-80da-24a385d3f71b]: invoking result_received_cb ...
+2022-12-02 02:53:50,183 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=5fd4b4bb-1687-4d81-80da-24a385d3f71b]: Contribution from site-1 ACCEPTED by the aggregator.
+2022-12-02 02:53:50,183 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=5fd4b4bb-1687-4d81-80da-24a385d3f71b]: finished processing client result by scatter_and_gather
+2022-12-02 02:53:50,242 - Communicator - INFO - Received comments: simulator_server Received from site-1 (1330282808 Bytes, 1669949629 seconds). SubmitUpdate time: 71.24423408508301 seconds
+2022-12-02 02:53:50,307 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=5fd4b4bb-1687-4d81-80da-24a385d3f71b]: result sent to server for task: name=train, id=5fd4b4bb-1687-4d81-80da-24a385d3f71b
+2022-12-02 02:53:50,307 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:53:52,422 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:53:54,429 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:53:56,437 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:53:58,447 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:00,454 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:02,463 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:04,473 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:06,483 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:08,494 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:10,501 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:12,509 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:14,518 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:16,527 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:18,536 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:20,545 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:22,556 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:24,575 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:26,583 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:28,591 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:30,599 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:32,607 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:34,615 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:36,624 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:38,634 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:40,643 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:42,653 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:44,663 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:46,672 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:48,681 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:50,692 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:52,702 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:54,712 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:56,722 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:54:58,730 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:00,737 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:02,745 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:04,756 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:06,765 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:08,775 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:10,784 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:12,794 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:14,803 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:16,811 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:18,820 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:20,831 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:22,841 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:24,852 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:26,861 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:28,872 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:30,882 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:32,896 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:34,906 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:36,915 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:38,923 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:40,933 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:42,001 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:55:42,942 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:44,951 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:46,961 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:48,971 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:50,982 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:52,992 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:55,000 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:57,008 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:55:59,017 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:01,026 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:03,037 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:05,044 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:07,054 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:09,063 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:11,074 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:13,081 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:15,092 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:17,102 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:19,110 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:21,119 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:23,129 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:25,140 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:27,150 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:29,160 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:31,170 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:33,179 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:35,190 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:37,199 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:39,208 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:41,217 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:43,226 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:45,236 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:47,246 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:49,256 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:51,267 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:51,596 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 02:56:53,277 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 17/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959797
+val 17/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 18/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959858
+val 18/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 19/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959864
+val 19/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- save local model: site-2 --------------------------------------------------
+2022-12-02 02:56:53,395 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: finished processing task
+2022-12-02 02:56:53,396 - FederatedClient - INFO - Starting to push execute result.
+2022-12-02 02:56:55,287 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:55,783 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-12-02 02:56:57,297 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:56:59,307 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:01,318 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:03,328 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:05,338 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:07,347 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:09,358 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:11,368 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:13,379 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:15,388 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:17,397 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:19,406 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:21,416 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:23,425 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:25,436 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:27,446 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:29,455 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:31,466 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:33,477 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:35,487 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:37,495 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:39,506 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:41,515 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:43,525 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:45,536 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:47,546 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:49,556 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:51,566 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:53,576 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:57:55,585 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:06,371 - SimulatorServer - INFO - received update from simulator_server_site-2_0 (1330282808 Bytes, 1669949886 seconds)
+2022-12-02 02:58:06,371 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=train, id=c6afd073-6c7a-485a-b71d-e850c1f03a33
+2022-12-02 02:58:06,371 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: invoking result_received_cb ...
+2022-12-02 02:58:06,848 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: Contribution from site-2 ACCEPTED by the aggregator.
+2022-12-02 02:58:06,848 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: finished processing client result by scatter_and_gather
+2022-12-02 02:58:06,852 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:06,911 - Communicator - INFO - Received comments: simulator_server Received from site-2 (1330282808 Bytes, 1669949886 seconds). SubmitUpdate time: 71.1278727054596 seconds
+2022-12-02 02:58:06,972 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=c6afd073-6c7a-485a-b71d-e850c1f03a33]: result sent to server for task: name=train, id=c6afd073-6c7a-485a-b71d-e850c1f03a33
+2022-12-02 02:58:06,973 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:08,912 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:09,119 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:10,923 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:11,129 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:12,934 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:13,139 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:14,943 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:15,149 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:16,913 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: task train exit with status TaskCompletionStatus.OK
+2022-12-02 02:58:16,951 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:17,160 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:17,411 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Start aggregation.
+2022-12-02 02:58:17,412 - DXOAggregator - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: aggregating 2 update(s) at round 1
+2022-12-02 02:58:17,728 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: End aggregation.
+2022-12-02 02:58:17,728 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Start persist model on server.
+2022-12-02 02:58:18,964 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-02 02:58:19,171 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-02 02:58:19,882 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: End persist model on server.
+2022-12-02 02:58:19,883 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 1 finished.
+2022-12-02 02:58:19,883 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 2 started.
+2022-12-02 02:58:19,883 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: scheduled task train
+2022-12-02 02:58:20,980 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=8ba7783c-a47a-4fef-9b0c-040817377125]: assigned task to client site-1: name=train, id=8ba7783c-a47a-4fef-9b0c-040817377125
+2022-12-02 02:58:20,981 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=8ba7783c-a47a-4fef-9b0c-040817377125]: sent task assignment to client
+2022-12-02 02:58:23,361 - SimulatorServer - INFO - GetTask: Return task: train to client: site-1 (16dbcf1d-ffcd-406c-98a9-3639721ce462) 
+2022-12-02 02:58:24,651 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=60ca7d01-1394-469c-a327-2d3edf8e036b]: assigned task to client site-2: name=train, id=60ca7d01-1394-469c-a327-2d3edf8e036b
+2022-12-02 02:58:24,652 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=60ca7d01-1394-469c-a327-2d3edf8e036b]: sent task assignment to client
+2022-12-02 02:58:26,976 - SimulatorServer - INFO - GetTask: Return task: train to client: site-2 (32db6c2d-2721-4fbe-a117-24e7a3c082cb) 
+2022-12-02 02:59:33,284 - Communicator - INFO - Received from simulator_server server  (1330282483 Bytes). getTask time: 72.31561708450317 seconds
+2022-12-02 02:59:33,345 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2022-12-02 02:59:34,449 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=8ba7783c-a47a-4fef-9b0c-040817377125
+2022-12-02 02:59:34,450 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8ba7783c-a47a-4fef-9b0c-040817377125]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-12-02 02:59:34,450 - LearnerExecutor - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8ba7783c-a47a-4fef-9b0c-040817377125]: Client trainer got task: train
+2022-12-02 02:59:37,195 - Communicator - INFO - Received from simulator_server server  (1330282483 Bytes). getTask time: 76.0202305316925 seconds
+2022-12-02 02:59:37,197 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2022-12-02 02:59:38,400 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=60ca7d01-1394-469c-a327-2d3edf8e036b
+2022-12-02 02:59:38,401 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=60ca7d01-1394-469c-a327-2d3edf8e036b]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-12-02 02:59:38,401 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=60ca7d01-1394-469c-a327-2d3edf8e036b]: Client trainer got task: train
+-------------------------------------------------- validate: site-1 --------------------------------------------------
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+2022-12-02 03:00:41,849 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8ba7783c-a47a-4fef-9b0c-040817377125]: Accuracy when validating site-1's model on site-1s data: 0.8308650680070573
+-------------------------------------------------- validate: site-2 --------------------------------------------------
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+2022-12-02 03:00:46,123 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=60ca7d01-1394-469c-a327-2d3edf8e036b]: Accuracy when validating site-2's model on site-2s data: 0.0
+2022-12-02 03:27:46,717 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:28:03,662 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:28:56,299 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:29:13,247 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:56:02,468 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:56:32,444 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:57:12,050 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 03:57:42,024 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:24:22,234 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:25:08,210 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:25:31,821 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:26:18,794 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:52:41,018 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:53:42,983 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:53:49,600 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 04:54:52,563 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:20:55,770 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:22:05,351 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:22:11,758 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:23:21,338 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:49:09,549 - SimulatorServer - INFO - getting AuxCommunicate request
+-------------------------------------------------- train start: site-1 --------------------------------------------------
+-------------------------------------------------- local training: site-1 --------------------------------------------------
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501888
+val 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501851
+val 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501884
+val 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501875
+val 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501842
+val 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.83505960005018792022-12-02 05:50:19,132 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 05:50:39,544 - SimulatorServer - INFO - getting AuxCommunicate request
+-------------------------------------------------- train start: site-2 --------------------------------------------------
+-------------------------------------------------- local training: site-2 --------------------------------------------------
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.834666800895983
+val 0/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959857
+val 1/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959874
+val 2/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959826
+val 3/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.8346668008959836
+val 4/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        28
+         eve       0.00      0.00      0.00         8
+         geo       0.00      0.00      0.00      1750
+         gpe       0.00      0.00      0.00       682
+         nat       0.00      0.00      0.00       399
+         org       0.00      0.00      0.00      1592
+         per       0.00      0.00      0.00      1043
+         tim       0.00      0.00      0.00      5819
+
+   micro avg       0.00      0.00      0.00     11321
+   macro avg       0.00      0.00      0.00     11321
+weighted avg       0.00      0.00      0.00     11321
+
+Acc: 0.0
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+training 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       186
+         eve       0.00      0.00      0.00       119
+         geo       0.00      0.00      0.00     14566
+         gpe       0.00      0.00      0.00      5444
+         nat       0.00      0.00      0.00       102
+         org       0.00      0.00      0.00      8239
+         per       0.00      0.00      0.00      6927
+         tim       0.00      0.00      0.00      6755
+
+   micro avg       0.00      0.00      0.00     42338
+   macro avg       0.00      0.00      0.00     42338
+weighted avg       0.00      0.00      0.00     42338
+
+Acc: 0.83466680089598342022-12-02 05:51:50,128 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:17:25,314 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:18:34,897 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:19:10,324 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:20:19,907 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:45:44,090 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:46:53,673 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:47:44,111 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 06:48:54,694 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:14:03,851 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:15:13,434 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:16:20,892 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:17:31,476 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:42:20,612 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:43:30,196 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:44:51,660 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 07:46:01,244 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 08:10:35,394 - SimulatorServer - INFO - getting AuxCommunicate request
+
+val 5/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501849
+val 6/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501876
+val 7/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501855
+val 8/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501894
+val 9/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.8308650680070573
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+training 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00       188
+         eve       0.00      0.00      0.00       111
+         geo       0.00      0.00      0.00     14495
+         gpe       0.00      0.00      0.00      5483
+         nat       0.00      0.00      0.00        94
+         org       0.00      0.00      0.00      8294
+         per       0.00      0.00      0.00      7136
+         tim       0.00      0.00      0.00      6793
+
+   micro avg       0.00      0.00      0.00     42594
+   macro avg       0.00      0.00      0.00     42594
+weighted avg       0.00      0.00      0.00     42594
+
+Acc: 0.8350596000501872
+val 10/20: 
+              precision    recall  f1-score   support
+
+         art       0.00      0.00      0.00        33
+         eve       0.00      0.00      0.00        18
+         geo       0.00      0.00      0.00      1735
+         gpe       0.00      0.00      0.00       696
+         nat       0.00      0.00      0.00         9
+         org       0.00      0.00      0.00      1061
+         per       0.00      0.00      0.00       915
+         tim       0.00      0.00      0.00       811
+
+   micro avg       0.00      0.00      0.00      5278
+   macro avg       0.00      0.00      0.00      5278
+weighted avg       0.00      0.00      0.00      5278
+
+Acc: 0.83086506800705732022-12-02 08:11:44,978 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 08:13:18,436 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 08:14:28,017 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-02 08:20:44,011 - SimulatorRunner - ERROR - Simulator run error: 
+2022-12-02 08:20:44,011 - SimulatorServer - INFO - shutting down server
+2022-12-02 08:20:44,012 - SimulatorServer - INFO - canceling sync locks
+2022-12-02 08:20:44,012 - SimulatorServer - INFO - server off

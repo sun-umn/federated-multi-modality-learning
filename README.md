@@ -1,7 +1,7 @@
 # federated-multi-modality-learning
 
 
-## <a herf = "https://www.kaggle.com/datasets/rajnathpatel/ner-data"> NER dataset from Kaggle </a>
+## <a herf="https://www.kaggle.com/datasets/rajnathpatel/ner-data"> NER dataset from Kaggle </a>
 > code inherite from <a href="https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a"> this blog</a>
 
 | Token | Description| Count (B) | Count (I) |
@@ -37,12 +37,12 @@ ___
 ### main metrics
 ***precision***
 $$
-precision = \frac{TP}{TP+FP}
+precision = \frac{TP}{TP + FP}
 $$
 
 ***recall***
 $$
-recall = \frac{TP}{TP+FN}
+recall = \frac{TP}{TP + FN}
 $$
 
 ***f1-score***

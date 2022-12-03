@@ -233,21 +233,21 @@ class PTLearner(Learner):
             metric_dict['macro avg']['acc'] = 1.0* total_acc_train / train_total
             
             val_metric, val_loss, val_metric_summary = self.local_validate(abort_signal)
-            val_metric_dict = parse_summary(metric_summary)
+            val_metric_dict = parse_summary(val_metric_summary)
             val_metric_dict['macro avg']['loss'] = val_loss
             val_metric_dict['macro avg']['acc'] = val_metric
             
-            for metric in ['loss', 'acc', 'f1-score']:
-                self.writer.add_scalars(f'{metric}', {
-                    "train": metric_dict['macro avg'][metric],
-                    "validation":  val_metric_dict['macro avg'][metric],
+            for metric_name in ['loss', 'acc', 'f1-score']:
+                self.writer.add_scalars(f'{metric_name}', {
+                    "train": metric_dict['macro avg'][metric_name],
+                    "validation":  val_metric_dict['macro avg'][metric_name],
                     }, epoch)
                 self.writer.add_text("summary/train", metric_summary, global_step=epoch)
                 self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
 
             
-            print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nAcc: {metric.item()}", )
-            print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nAcc: {val_metric.item()}")
+            print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
+            print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
             
 
     def get_model_for_validation(self, model_name: str, fl_ctx: FLContext) -> Shareable:
@@ -346,7 +346,7 @@ class PTLearner(Learner):
                     total_loss_test += loss.item()
             
 
-            metric = total_acc_test / float(test_total)
+            metric = 1.0 * total_acc_test / float(test_total)
             loss = total_loss_test/test_total
             metric_summary = classification_report(y_true, y_pred)
         return metric, loss, metric_summary

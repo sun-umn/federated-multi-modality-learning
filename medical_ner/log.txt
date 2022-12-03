@@ -1,25 +1,25 @@
-2022-12-03 16:35:11,878 - SimulatorRunner - INFO - Create the Simulator Server.
-2022-12-03 16:35:11,958 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 42785
-2022-12-03 16:35:11,962 - SimulatorServer - INFO - starting insecure server at localhost:46991
-2022-12-03 16:35:11,964 - SimulatorRunner - INFO - Deploy the Apps.
-2022-12-03 16:35:16,064 - SimulatorRunner - INFO - Create the simulate clients.
-2022-12-03 16:35:16,078 - ClientManager - INFO - Client: New client site-1@[ joined. Sent token: 5b0efdf3-909b-4ab0-8bc8-e8f36b75ed8a.  Total clients: 1
-2022-12-03 16:35:16,079 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:5b0efdf3-909b-4ab0-8bc8-e8f36b75ed8a SSID:
-2022-12-03 16:35:16,086 - ClientManager - INFO - Client: New client site-2@[ joined. Sent token: 899325b4-c221-44eb-97e0-fcc7094fc48a.  Total clients: 2
-2022-12-03 16:35:16,086 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:899325b4-c221-44eb-97e0-fcc7094fc48a SSID:
-2022-12-03 16:35:16,088 - SimulatorRunner - INFO - Set the client status ready.
-2022-12-03 16:35:16,089 - SimulatorRunner - INFO - Deploy and start the Server App.
-2022-12-03 16:35:18,430 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
-2022-12-03 16:35:18,432 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow scatter_and_gather (<class 'nvflare.app_common.workflows.scatter_and_gather.ScatterAndGather'>) ...
-2022-12-03 16:35:18,432 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job]: Initializing ScatterAndGather workflow.
-2022-12-03 16:35:18,438 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Workflow scatter_and_gather (<class 'nvflare.app_common.workflows.scatter_and_gather.ScatterAndGather'>) started
-2022-12-03 16:35:18,439 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Beginning ScatterAndGather training phase.
-2022-12-03 16:35:18,439 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 0 started.
-2022-12-03 16:35:18,440 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: scheduled task train
-2022-12-03 16:35:19,097 - SimulatorClientRunner - INFO - Start the clients run simulation.
-2022-12-03 16:35:19,097 - SimulatorClientRunner - INFO - Start the clients run simulation.
-2022-12-03 16:35:20,099 - SimulatorClientRunner - INFO - Simulate Run client: site-1
-2022-12-03 16:35:20,122 - SimulatorClientRunner - INFO - Simulate Run client: site-2
+2022-12-03 20:42:34,293 - SimulatorRunner - INFO - Create the Simulator Server.
+2022-12-03 20:42:34,377 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 44195
+2022-12-03 20:42:34,381 - SimulatorServer - INFO - starting insecure server at localhost:48141
+2022-12-03 20:42:34,382 - SimulatorRunner - INFO - Deploy the Apps.
+2022-12-03 20:42:38,373 - SimulatorRunner - INFO - Create the simulate clients.
+2022-12-03 20:42:38,387 - ClientManager - INFO - Client: New client site-1@[ joined. Sent token: fe1c8315-b8ac-45b6-828a-c41a18a1125a.  Total clients: 1
+2022-12-03 20:42:38,389 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:fe1c8315-b8ac-45b6-828a-c41a18a1125a SSID:
+2022-12-03 20:42:38,395 - ClientManager - INFO - Client: New client site-2@[ joined. Sent token: 92bae118-7b59-4f75-8161-541674572ff0.  Total clients: 2
+2022-12-03 20:42:38,396 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:92bae118-7b59-4f75-8161-541674572ff0 SSID:
+2022-12-03 20:42:38,397 - SimulatorRunner - INFO - Set the client status ready.
+2022-12-03 20:42:38,398 - SimulatorRunner - INFO - Deploy and start the Server App.
+2022-12-03 20:42:40,726 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
+2022-12-03 20:42:40,727 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow scatter_and_gather (<class 'nvflare.app_common.workflows.scatter_and_gather.ScatterAndGather'>) ...
+2022-12-03 20:42:40,728 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job]: Initializing ScatterAndGather workflow.
+2022-12-03 20:42:40,734 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Workflow scatter_and_gather (<class 'nvflare.app_common.workflows.scatter_and_gather.ScatterAndGather'>) started
+2022-12-03 20:42:40,734 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Beginning ScatterAndGather training phase.
+2022-12-03 20:42:40,735 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 0 started.
+2022-12-03 20:42:40,736 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: scheduled task train
+2022-12-03 20:42:41,403 - SimulatorClientRunner - INFO - Start the clients run simulation.
+2022-12-03 20:42:41,403 - SimulatorClientRunner - INFO - Start the clients run simulation.
+2022-12-03 20:42:42,405 - SimulatorClientRunner - INFO - Simulate Run client: site-1
+2022-12-03 20:42:42,426 - SimulatorClientRunner - INFO - Simulate Run client: site-2
 -------------------------------------------------- initialize: site-1 --------------------------------------------------
 
             load data from /workspace/src/data: site-1_train.csv and site-1_val.csv
@@ -27,10 +27,10 @@
             site-1_train.csv: 15346
             site-1_val.csv: 1919
             
-2022-12-03 16:35:35,702 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
-2022-12-03 16:35:35,702 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
-2022-12-03 16:35:35,712 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9]: assigned task to client site-1: name=train, id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9
-2022-12-03 16:35:35,713 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9]: sent task assignment to client
+2022-12-03 20:42:58,585 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
+2022-12-03 20:42:58,585 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
+2022-12-03 20:42:58,594 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=b56da5e1-9bf3-4bbe-b8b8-8a47878e148c]: assigned task to client site-1: name=train, id=b56da5e1-9bf3-4bbe-b8b8-8a47878e148c
+2022-12-03 20:42:58,596 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=b56da5e1-9bf3-4bbe-b8b8-8a47878e148c]: sent task assignment to client
 -------------------------------------------------- initialize: site-2 --------------------------------------------------
 
             load data from /workspace/src/data: site-2_train.csv and site-2_val.csv
@@ -38,25 +38,9 @@
             site-2_train.csv: 15347
             site-2_val.csv: 1919
             
-2022-12-03 16:35:35,758 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
-2022-12-03 16:35:35,759 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
-2022-12-03 16:35:36,518 - SimulatorServer - INFO - GetTask: Return task: train to client: site-1 (5b0efdf3-909b-4ab0-8bc8-e8f36b75ed8a) 
-2022-12-03 16:35:36,925 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=abc3eeed-2048-4bf4-a378-a6b9389e0126]: assigned task to client site-2: name=train, id=abc3eeed-2048-4bf4-a378-a6b9389e0126
-2022-12-03 16:35:36,927 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=abc3eeed-2048-4bf4-a378-a6b9389e0126]: sent task assignment to client
-2022-12-03 16:35:37,751 - SimulatorServer - INFO - GetTask: Return task: train to client: site-2 (899325b4-c221-44eb-97e0-fcc7094fc48a) 
-2022-12-03 16:35:58,976 - Communicator - INFO - Received from simulator_server server  (430981217 Bytes). getTask time: 23.271503686904907 seconds
-2022-12-03 16:35:59,005 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
-2022-12-03 16:35:59,500 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9
-2022-12-03 16:35:59,501 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
-2022-12-03 16:35:59,501 - LearnerExecutor - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9]: Client trainer got task: train
-2022-12-03 16:36:00,343 - Communicator - INFO - Received from simulator_server server  (430981217 Bytes). getTask time: 24.58252787590027 seconds
-2022-12-03 16:36:00,361 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
-2022-12-03 16:36:00,887 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=abc3eeed-2048-4bf4-a378-a6b9389e0126
-2022-12-03 16:36:00,887 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=abc3eeed-2048-4bf4-a378-a6b9389e0126]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
-2022-12-03 16:36:00,887 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=abc3eeed-2048-4bf4-a378-a6b9389e0126]: Client trainer got task: train
--------------------------------------------------- validate: site-1 --------------------------------------------------
--------------------------------------------------- local validate: site-1 --------------------------------------------------
-2022-12-03 16:36:21,888 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=3a8f91fd-49a1-443a-aac8-8aad8a67c2e9]: Accuracy when validating site-1's model on site-1s data: 0.056208628813662204
--------------------------------------------------- validate: site-2 --------------------------------------------------
--------------------------------------------------- local validate: site-2 --------------------------------------------------
-2022-12-03 16:36:23,001 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=abc3eeed-2048-4bf4-a378-a6b9389e0126]: Accuracy when validating site-2's model on site-2s data: 0.055662995092557135
+2022-12-03 20:42:58,750 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
+2022-12-03 20:42:58,750 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
+2022-12-03 20:42:59,417 - SimulatorServer - INFO - GetTask: Return task: train to client: site-1 (fe1c8315-b8ac-45b6-828a-c41a18a1125a) 
+2022-12-03 20:42:59,829 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=433bf1a8-9637-4d70-a7b0-814189221091]: assigned task to client site-2: name=train, id=433bf1a8-9637-4d70-a7b0-814189221091
+2022-12-03 20:42:59,831 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=433bf1a8-9637-4d70-a7b0-814189221091]: sent task assignment to client
+2022-12-03 20:43:00,648 - SimulatorServer - INFO - GetTask: Return task: train to client: site-2 (92bae118-7b59-4f75-8161-541674572ff0) 

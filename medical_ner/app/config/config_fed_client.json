@@ -28,8 +28,8 @@
       "args": {
         "data_path": "/workspace/src/data",
         "lr": 5e-3,
-        "epochs": 20,
-        "bs": 8,
+        "epochs": 100,
+        "bs": 16,
         "analytic_sender_id": "analytic_sender"
       }
     },

@@ -18,6 +18,7 @@ import torch
 from pt_constants import PTConstants
 from simple_network import BertModel
 from dataset import DataSequence
+from parse_metric_summary import parse_summary
 from torch import nn
 from torch.optim import SGD
 from torch.utils.data.dataloader import DataLoader
@@ -43,6 +44,7 @@ from nvflare.app_common.app_constant import AppConstants
 from nvflare.app_common.pt.pt_fed_utils import PTModelPersistenceFormatManager
 
 from seqeval.metrics import classification_report
+
 
 
 class PTLearner(Learner):
@@ -225,20 +227,24 @@ class PTLearner(Learner):
                 # self.writer.add_scalar("train_loss", loss.item(), current_step)
 
             # Stream validation accuracy at the end of each epoch
-            
-            
-            
-            ## training accuracy
-            metric = 1.0* total_acc_train / train_total
             metric_summary = classification_report(y_true, y_pred)
-            self.writer.add_scalar("training_accuracy", metric.item(), epoch)
-            self.writer.add_scalar("train_loss", total_loss_train/train_total, epoch)
-            self.writer.add_text("summary/train", metric_summary, global_step=epoch)
+            metric_dict = parse_summary(metric_summary)
+            metric_dict['macro avg']['loss'] = total_loss_train/train_total
+            metric_dict['macro avg']['acc'] = 1.0* total_acc_train / train_total
             
             val_metric, val_loss, val_metric_summary = self.local_validate(abort_signal)
-            self.writer.add_scalar("validation_accuracy", val_metric.item(), epoch)
-            self.writer.add_scalar("train_loss", val_loss, epoch)
-            self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
+            val_metric_dict = parse_summary(metric_summary)
+            val_metric_dict['macro avg']['loss'] = val_loss
+            val_metric_dict['macro avg']['acc'] = val_metric
+            
+            for metric in ['loss', 'acc', 'f1-score']:
+                self.writer.add_scalars(f'{metric}', {
+                    "train": metric_dict['macro avg'][metric],
+                    "validation":  val_metric_dict['macro avg'][metric],
+                    }, epoch)
+                self.writer.add_text("summary/train", metric_summary, global_step=epoch)
+                self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
+
             
             print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nAcc: {metric.item()}", )
             print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nAcc: {val_metric.item()}")
@@ -336,11 +342,11 @@ class PTLearner(Learner):
                     y_true.append([label_map[x.item()] for x in label_clean])
                     acc = (predictions == label_clean).mean()
 
-                    total_acc_test += acc
+                    total_acc_test += acc.item()
                     total_loss_test += loss.item()
             
 
-            metric = 1.0 * total_acc_test / float(test_total)
+            metric = total_acc_test / float(test_total)
             loss = total_loss_test/test_total
             metric_summary = classification_report(y_true, y_pred)
         return metric, loss, metric_summary

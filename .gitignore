@@ -10,6 +10,6 @@ tf1_ner/
 ## log files and saved files
 *.pt
 *.txt
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg

@@ -16,7 +16,8 @@
 class PTConstants:
     PTServerName = "server"
     PTFileModelName = "FL_global_model.pt"
-    PTLocalModelName = "local_model.pt"
+    PTLocalBestModelName = "local_best_model.pt"
+    PTLocalModelName = "local_final_model.pt"
 
     PTModelsDir = "models"
     CrossValResultsJsonFilename = "cross_val_results.json"

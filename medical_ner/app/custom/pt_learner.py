@@ -78,6 +78,8 @@ class PTLearner(Learner):
         self.exclude_vars = exclude_vars
         self.analytic_sender_id = analytic_sender_id
         self.dataprallel = False
+        self.best_metric_higher_prefered = -float('inf')
+        self.best_metric_lower_prefered = float('inf')
         
 
 
@@ -102,7 +104,7 @@ class PTLearner(Learner):
         self.loss = nn.CrossEntropyLoss()
         self.optimizer = SGD(self.model.parameters(), lr=self.lr, momentum=0.9)
 
-        # Create CIFAR10 dataset for training.
+        # Create dataset for training.
                 
         df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
         df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
@@ -166,7 +168,7 @@ class PTLearner(Learner):
             return make_reply(ReturnCode.TASK_ABORTED)
 
         # Save the local model after training.
-        self.save_local_model(fl_ctx)
+        self.save_local_model(fl_ctx, saved_name = PTConstants.PTLocalModelName)
 
         # Get the new state dict and send as weights
         new_weights = self.model.module.state_dict() if self.dataprallel else self.model.state_dict()
@@ -183,15 +185,10 @@ class PTLearner(Learner):
         # Basic training
         for epoch in range(self.epochs):
             self.model.train()
-            total_acc_train = 0
-            total_loss_train = 0
-            train_total = 0
-            count = 0
-            y_pred = []
-            y_true = []
+            total_acc_train, total_loss_train, train_total = 0, 0, 0
+            y_pred, y_true = [], []
             label_map = self.train_loader.dataset.ids_to_labels
             for batch in self.train_loader:
-                count += 1
                 if abort_signal.triggered:
                     return
 
@@ -206,6 +203,7 @@ class PTLearner(Learner):
                 self.optimizer.step()
                 
                 for i in range(logits.shape[0]):
+                    # remove padding tokens
                     logits_clean = logits[i][train_label[i] != -100]
                     label_clean = train_label[i][train_label[i] != -100].cpu().detach().numpy()
                     predictions = logits_clean.argmax(dim=1).cpu().detach().numpy()
@@ -214,19 +212,8 @@ class PTLearner(Learner):
                     acc = (predictions == label_clean).mean()
                     total_acc_train += acc
                     total_loss_train += loss.item()
-                
 
-                if count % 3000 == 0:
-                    self.log_info(
-                        fl_ctx, f"Epoch: {epoch}/{self.epochs}, Iteration: {count}, " f"Loss: {total_loss_train / train_total: .3f} | Accuracy: {total_acc_train / train_total: .3f}"
-                    )
-                    running_loss = 0.0
-
-                # Stream training loss at each step
-                current_step = len(self.train_loader) * epoch + count
-                # self.writer.add_scalar("train_loss", loss.item(), current_step)
-
-            # Stream validation accuracy at the end of each epoch
+            # Stream training, validation metrics at the end of each epoch
             metric_summary = classification_report(y_true, y_pred)
             metric_dict = parse_summary(metric_summary)
             metric_dict['macro avg']['loss'] = total_loss_train/train_total
@@ -245,9 +232,17 @@ class PTLearner(Learner):
                 self.writer.add_text("summary/train", metric_summary, global_step=epoch)
                 self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
 
+            ## save the model if it hits the best record so far
+            if self.best_metric_higher_prefered < val_metric_dict['macro avg']['f1-score']:
+                self.save_local_model(fl_ctx, saved_name = PTConstants.PTLocalBestModelName)
+                self.best_metric_higher_prefered = val_metric_dict['macro avg']['f1-score']
             
+            ## log and print the evaluation results
             print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
             print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
+            self.log_info(
+                        fl_ctx, f"train:\n{metric_summary}\n==========================================================\nval:\n{val_metric_summary}"
+                    )
             
 
     def get_model_for_validation(self, model_name: str, fl_ctx: FLContext) -> Shareable:
@@ -351,16 +346,17 @@ class PTLearner(Learner):
             metric_summary = classification_report(y_true, y_pred)
         return metric, loss, metric_summary
 
-    def save_local_model(self, fl_ctx: FLContext):
+    def save_local_model(self, fl_ctx: FLContext, saved_name: str):
         print("-"*50, f"save local model: {self.client_name}", "-"*50)
         run_dir = fl_ctx.get_engine().get_workspace().get_run_dir(fl_ctx.get_prop(ReservedKey.RUN_NUM))
         models_dir = os.path.join(run_dir, PTConstants.PTModelsDir)
         if not os.path.exists(models_dir):
             os.makedirs(models_dir)
-        model_path = os.path.join(models_dir, PTConstants.PTLocalModelName)
+        model_path = os.path.join(models_dir, saved_name)
         if self.dataprallel:
             ml = make_model_learnable(self.model.module.state_dict(), {})
         else:
             ml = make_model_learnable(self.model.state_dict(), {})
         self.persistence_manager.update(ml)
         torch.save(self.persistence_manager.to_persistence_dict(), model_path)
+        

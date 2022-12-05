@@ -60,60 +60,60 @@
 -------------------------------------------------- validate: site-1 --------------------------------------------------
 -------------------------------------------------- local validate: site-1 --------------------------------------------------
 2022-12-05 16:06:35,461 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=3a3577ef-b2b1-439b-a163-54646f5152cb]: Accuracy when validating site-1's model on site-1s data: 0.13391050901167775
-  2022-12-05 16:13:30,100 - SimulatorServer - INFO - getting AuxCommunicate request
+2022-12-05 16:15:13,694 - SimulatorServer - INFO - getting AuxCommunicate request
 -------------------------------------------------- train start: site-1 --------------------------------------------------
 -------------------------------------------------- local training: site-1 --------------------------------------------------
 -------------------------------------------------- local validate: site-1 --------------------------------------------------
 -------------------------------------------------- save local model: site-1 --------------------------------------------------
-training 0/1: 
+training 0/100: 
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00       222
          eve       0.00      0.00      0.00        96
-         geo       0.63      0.52      0.57     14594
-         gpe       0.76      0.57      0.65      5584
+         geo       0.64      0.53      0.58     14594
+         gpe       0.77      0.57      0.65      5584
          nat       0.00      0.00      0.00       116
-         org       0.46      0.33      0.39      8377
-         per       0.47      0.45      0.46      7230
-         tim       0.63      0.40      0.49      6802
+         org       0.48      0.34      0.40      8377
+         per       0.47      0.46      0.46      7230
+         tim       0.65      0.40      0.49      6802
 
-   micro avg       0.58      0.45      0.51     43021
-   macro avg       0.37      0.28      0.32     43021
-weighted avg       0.58      0.45      0.51     43021
+   micro avg       0.59      0.46      0.52     43021
+   macro avg       0.38      0.29      0.32     43021
+weighted avg       0.59      0.46      0.51     43021
 
-F1-score: 0.900724964124405
-val 0/1: 
+F1-score: 0.902402250741216
+val 0/100: 
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00        19
          eve       0.00      0.00      0.00        16
-         geo       0.73      0.69      0.71      1819
-         gpe       0.88      0.74      0.80       731
+         geo       0.70      0.70      0.70      1819
+         gpe       0.91      0.73      0.81       731
          nat       0.00      0.00      0.00         6
-         org       0.55      0.49      0.52       991
-         per       0.66      0.67      0.66       907
-         tim       0.71      0.57      0.63       854
+         org       0.62      0.46      0.53       991
+         per       0.64      0.68      0.66       907
+         tim       0.78      0.57      0.65       854
 
-   micro avg       0.70      0.63      0.66      5343
-   macro avg       0.44      0.39      0.42      5343
-weighted avg       0.70      0.63      0.66      5343
+   micro avg       0.71      0.63      0.67      5343
+   macro avg       0.46      0.39      0.42      5343
+weighted avg       0.71      0.63      0.66      5343
 
-F1-score: 0.9338633958907049
-2022-12-05 16:13:30,439 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=38d2eb60-1b4b-4a50-8199-34af21fa6aa2]: train:
+F1-score: 0.935531136429673
+2022-12-05 16:15:14,037 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=3a3577ef-b2b1-439b-a163-54646f5152cb]: train:
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00       222
          eve       0.00      0.00      0.00        96
-         geo       0.63      0.52      0.57     14594
-         gpe       0.76      0.57      0.65      5584
+         geo       0.64      0.53      0.58     14594
+         gpe       0.77      0.57      0.65      5584
          nat       0.00      0.00      0.00       116
-         org       0.46      0.33      0.39      8377
-         per       0.47      0.45      0.46      7230
-         tim       0.63      0.40      0.49      6802
+         org       0.48      0.34      0.40      8377
+         per       0.47      0.46      0.46      7230
+         tim       0.65      0.40      0.49      6802
 
-   micro avg       0.58      0.45      0.51     43021
-   macro avg       0.37      0.28      0.32     43021
-weighted avg       0.58      0.45      0.51     43021
+   micro avg       0.59      0.46      0.52     43021
+   macro avg       0.38      0.29      0.32     43021
+weighted avg       0.59      0.46      0.51     43021
 
 ==========================================================
 val:
@@ -121,74 +121,71 @@ val:
 
          art       0.00      0.00      0.00        19
          eve       0.00      0.00      0.00        16
-         geo       0.73      0.69      0.71      1819
-         gpe       0.88      0.74      0.80       731
+         geo       0.70      0.70      0.70      1819
+         gpe       0.91      0.73      0.81       731
          nat       0.00      0.00      0.00         6
-         org       0.55      0.49      0.52       991
-         per       0.66      0.67      0.66       907
-         tim       0.71      0.57      0.63       854
+         org       0.62      0.46      0.53       991
+         per       0.64      0.68      0.66       907
+         tim       0.78      0.57      0.65       854
 
-   micro avg       0.70      0.63      0.66      5343
-   macro avg       0.44      0.39      0.42      5343
-weighted avg       0.70      0.63      0.66      5343
+   micro avg       0.71      0.63      0.67      5343
+   macro avg       0.46      0.39      0.42      5343
+weighted avg       0.71      0.63      0.66      5343
 
--------------------------------------------------- save local model: site-1 --------------------------------------------------
-2022-12-05 16:13:31,106 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=38d2eb60-1b4b-4a50-8199-34af21fa6aa2]: finished processing task
-2022-12-05 16:13:31,108 - FederatedClient - INFO - Starting to push execute result.
-2022-12-05 16:13:31,919 - Communicator - INFO - Send submitUpdate to simulator_server server
+2022-12-05 16:15:23,393 - SimulatorServer - INFO - getting AuxCommunicate request
 -------------------------------------------------- train start: site-2 --------------------------------------------------
 -------------------------------------------------- local training: site-2 --------------------------------------------------
 -------------------------------------------------- local validate: site-2 --------------------------------------------------
 -------------------------------------------------- save local model: site-2 --------------------------------------------------
-training 0/1: 
+training 0/100: 
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00       176
          eve       0.00      0.00      0.00       117
-         geo       0.63      0.53      0.58     14724
-         gpe       0.78      0.57      0.66      5503
+         geo       0.64      0.54      0.58     14724
+         gpe       0.79      0.59      0.68      5503
          nat       0.00      0.00      0.00        95
-         org       0.45      0.34      0.39      8238
-         per       0.46      0.45      0.45      6998
-         tim       0.64      0.42      0.50      6773
+         org       0.47      0.35      0.40      8238
+         per       0.46      0.44      0.45      6998
+         tim       0.67      0.42      0.51      6773
 
-   micro avg       0.58      0.46      0.51     42624
-   macro avg       0.37      0.29      0.32     42624
-weighted avg       0.58      0.46      0.51     42624
+   micro avg       0.59      0.47      0.52     42624
+   macro avg       0.38      0.29      0.33     42624
+weighted avg       0.60      0.47      0.52     42624
 
-F1-score: 0.9041271802937989
-val 0/1: 
+F1-score: 0.9061236872544768
+val 0/100: 
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00        45
          eve       0.00      0.00      0.00        13
-         geo       0.69      0.69      0.69      1773
-         gpe       0.84      0.71      0.77       640
+         geo       0.71      0.67      0.69      1773
+         gpe       0.83      0.69      0.76       640
          nat       0.00      0.00      0.00        12
-         org       0.53      0.51      0.52      1045
-         per       0.62      0.55      0.58       940
-         tim       0.77      0.56      0.64       859
+         org       0.51      0.52      0.52      1045
+         per       0.61      0.55      0.57       940
+         tim       0.71      0.55      0.62       859
 
-   micro avg       0.67      0.60      0.63      5327
-   macro avg       0.43      0.38      0.40      5327
-weighted avg       0.67      0.60      0.63      5327
+   micro avg       0.66      0.59      0.62      5327
+   macro avg       0.42      0.37      0.39      5327
+weighted avg       0.66      0.59      0.62      5327
 
-F1-score: 0.9309179590773589
-2022-12-05 16:13:33,616 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=233f3f5d-8075-4e85-984a-ca7470fdaa30]: train:
+F1-score: 0.9251436041919072
+2022-12-05 16:15:23,901 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=a8fd8b19-8ab7-45a2-97ae-8357d78e491a]: train:
               precision    recall  f1-score   support
 
          art       0.00      0.00      0.00       176
          eve       0.00      0.00      0.00       117
-         geo       0.63      0.53      0.58     14724
-         gpe       0.78      0.57      0.66      5503
+         geo       0.64      0.54      0.58     14724
+         gpe       0.79      0.59      0.68      5503
          nat       0.00      0.00      0.00        95
-         org       0.45      0.34      0.39      8238
-         per       0.46      0.45      0.45      6998
-         tim       0.64      0.42      0.50      6773
+         org       0.47      0.35      0.40      8238
+         per       0.46      0.44      0.45      6998
+         tim       0.67      0.42      0.51      6773
 
-   micro avg       0.58      0.46      0.51     42624
-   macro avg       0.37      0.29      0.32     42624
-weighted avg       0.58      0.46      0.51     42624
+   micro avg       0.59      0.47      0.52     42624
+   macro avg       0.38      0.29      0.33     42624
+weighted avg       0.60      0.47      0.52     42624
 
 ==========================================================
 val:
@@ -196,7 +193,18 @@ val:
 
          art       0.00      0.00      0.00        45
          eve       0.00      0.00      0.00        13
-         geo       0.69      0.69      0.69      1773
+         geo       0.71      0.67      0.69      1773
+         gpe       0.83      0.69      0.76       640
+         nat       0.00      0.00      0.00        12
+         org       0.51      0.52      0.52      1045
+         per       0.61      0.55      0.57       940
+         tim       0.71      0.55      0.62       859
+
+   micro avg       0.66      0.59      0.62      5327
+   macro avg       0.42      0.37      0.39      5327
+weighted avg       0.66      0.59      0.62      5327
+
+3
          gpe       0.84      0.71      0.77       640
          nat       0.00      0.00      0.00        12
          org       0.53      0.51      0.52      1045
@@ -220,3 +228,53 @@ weighted avg       0.67      0.60      0.63      5327
 2022-12-05 16:13:54,967 - Communicator - INFO - Received comments: simulator_server Received from site-1 (430981542 Bytes, 1670256834 seconds). SubmitUpdate time: 23.04848551750183 seconds
 2022-12-05 16:13:55,021 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=38d2eb60-1b4b-4a50-8199-34af21fa6aa2]: result sent to server for task: name=train, id=38d2eb60-1b4b-4a50-8199-34af21fa6aa2
 2022-12-05 16:13:55,022 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:13:58,198 - SimulatorServer - INFO - received update from simulator_server_site-2_0 (430981542 Bytes, 1670256838 seconds)
+2022-12-05 16:13:58,198 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=train, id=233f3f5d-8075-4e85-984a-ca7470fdaa30
+2022-12-05 16:13:58,198 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=233f3f5d-8075-4e85-984a-ca7470fdaa30]: invoking result_received_cb ...
+2022-12-05 16:13:58,372 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=233f3f5d-8075-4e85-984a-ca7470fdaa30]: Contribution from site-2 ACCEPTED by the aggregator.
+2022-12-05 16:13:58,372 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train, task_id=233f3f5d-8075-4e85-984a-ca7470fdaa30]: finished processing client result by scatter_and_gather
+2022-12-05 16:13:58,404 - Communicator - INFO - Received comments: simulator_server Received from site-2 (430981542 Bytes, 1670256838 seconds). SubmitUpdate time: 23.13125228881836 seconds
+2022-12-05 16:13:58,415 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:13:58,431 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=233f3f5d-8075-4e85-984a-ca7470fdaa30]: result sent to server for task: name=train, id=233f3f5d-8075-4e85-984a-ca7470fdaa30
+2022-12-05 16:13:58,431 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:00,431 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:14:00,502 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:02,441 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:14:02,512 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:04,451 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:14:04,523 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:06,462 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:14:06,534 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:08,473 - ClientTaskWorker - INFO - Finished one task run for client: site-1
+2022-12-05 16:14:08,498 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: task train exit with status TaskCompletionStatus.OK
+2022-12-05 16:14:08,544 - ClientTaskWorker - INFO - Finished one task run for client: site-2
+2022-12-05 16:14:08,998 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Start aggregation.
+2022-12-05 16:14:08,999 - DXOAggregator - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: aggregating 2 update(s) at round 0
+2022-12-05 16:14:09,121 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: End aggregation.
+2022-12-05 16:14:09,122 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Start persist model on server.
+2022-12-05 16:14:09,514 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: End persist model on server.
+2022-12-05 16:14:09,514 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 0 finished.
+2022-12-05 16:14:09,514 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: Round 1 started.
+2022-12-05 16:14:09,514 - ScatterAndGather - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather]: scheduled task train
+2022-12-05 16:14:10,481 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa]: assigned task to client site-1: name=train, id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa
+2022-12-05 16:14:10,482 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-1, peer_run=simulate_job, task_name=train, task_id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa]: sent task assignment to client
+2022-12-05 16:14:11,313 - SimulatorServer - INFO - GetTask: Return task: train to client: site-1 (e4553453-ed91-4b14-b596-dd02b9ace584) 
+2022-12-05 16:14:11,720 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1]: assigned task to client site-2: name=train, id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1
+2022-12-05 16:14:11,722 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=scatter_and_gather, peer=site-2, peer_run=simulate_job, task_name=train, task_id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1]: sent task assignment to client
+2022-12-05 16:14:12,507 - SimulatorServer - INFO - GetTask: Return task: train to client: site-2 (0a5ae44f-1728-49b8-a4e4-88c9339a5edb) 
+2022-12-05 16:14:34,028 - Communicator - INFO - Received from simulator_server server  (430981217 Bytes). getTask time: 23.550030946731567 seconds
+2022-12-05 16:14:34,055 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2022-12-05 16:14:34,487 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa
+2022-12-05 16:14:34,487 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-12-05 16:14:34,487 - LearnerExecutor - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa]: Client trainer got task: train
+2022-12-05 16:14:35,074 - Communicator - INFO - Received from simulator_server server  (430981217 Bytes). getTask time: 24.52455973625183 seconds
+2022-12-05 16:14:35,081 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2022-12-05 16:14:35,482 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1
+2022-12-05 16:14:35,482 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1]: invoking task executor <class 'nvflare.app_common.executors.learner_executor.LearnerExecutor'>
+2022-12-05 16:14:35,482 - LearnerExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1]: Client trainer got task: train
+-------------------------------------------------- validate: site-1 --------------------------------------------------
+-------------------------------------------------- local validate: site-1 --------------------------------------------------
+2022-12-05 16:14:56,678 - PTLearner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=e9ab54eb-c1f8-4224-82d4-807567b1f0aa]: Accuracy when validating site-1's model on site-1s data: 0.9257062312291059
+-------------------------------------------------- validate: site-2 --------------------------------------------------
+-------------------------------------------------- local validate: site-2 --------------------------------------------------
+2022-12-05 16:14:57,604 - PTLearner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=8b0dc7d8-41d8-48cd-b3bf-8374682928c1]: Accuracy when validating site-2's model on site-2s data: 0.92285818389078

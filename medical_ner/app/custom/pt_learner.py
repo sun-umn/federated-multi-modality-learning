@@ -80,6 +80,7 @@ class PTLearner(Learner):
         self.dataprallel = False
         self.best_metric_higher_prefered = -float('inf')
         self.best_metric_lower_prefered = float('inf')
+        self.global_round = 0 
         
 
 
@@ -161,6 +162,7 @@ class PTLearner(Learner):
         else:
             self.model.load_state_dict(state_dict=torch_weights)
         self.local_train(fl_ctx, abort_signal)
+        self.global_round += 1
 
         # Check the abort_signal after training.
         # local_train returns early if abort_signal is triggered.
@@ -224,13 +226,14 @@ class PTLearner(Learner):
             val_metric_dict['macro avg']['loss'] = val_loss
             val_metric_dict['macro avg']['acc'] = val_metric
             
+            global_epoches = self.global_round*self.epochs+epoch
             for metric_name in ['loss', 'acc', 'f1-score']:
                 self.writer.add_scalars(f'{metric_name}', {
                     "train": metric_dict['macro avg'][metric_name],
                     "validation":  val_metric_dict['macro avg'][metric_name],
-                    }, epoch)
-                self.writer.add_text("summary/train", metric_summary, global_step=epoch)
-                self.writer.add_text("summary/val", val_metric_summary, global_step=epoch)
+                    }, global_epoches)
+                self.writer.add_text("summary/train", metric_summary, global_step=global_epoches)
+                self.writer.add_text("summary/val", val_metric_summary, global_step=global_epoches)
 
             ## save the model if it hits the best record so far
             if self.best_metric_higher_prefered < val_metric_dict['macro avg']['f1-score']:
@@ -238,8 +241,8 @@ class PTLearner(Learner):
                 self.best_metric_higher_prefered = val_metric_dict['macro avg']['f1-score']
             
             ## log and print the evaluation results
-            print(f"training {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
-            print(f"val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
+            print(f"global epoches: {self.global_round} training : {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
+            print(f"global epoches: {self.global_round} val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
             self.log_info(
                         fl_ctx, f"train:\n{metric_summary}\n==========================================================\nval:\n{val_metric_summary}"
                     )

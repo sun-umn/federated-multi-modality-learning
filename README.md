@@ -4,7 +4,7 @@
 ## [NER dataset from Kaggle]("https://www.kaggle.com/datasets/rajnathpatel/ner-data")
 > code adapted from [this blog]("https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a")
 
-| Token | Description| Count (B) | Count (I) |
+| entity | Description| Count (B) | Count (I) |
 | ------| :-----------:| :----: | :---: |
 |    geo | geographical entity| 37644 |7414 |
 |    org | organization entity| 20143 | 16784|
@@ -96,7 +96,7 @@ ___
 ### site 1
 **test performance**
 
-|   token      | precision | recall | f1-score | support |
+|   entity      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
 |         art  |     0.06   |   0.05  |    0.06  |      19 |
 |         eve  |     0.11   |   0.06  |    0.08  |      16 |
@@ -115,7 +115,7 @@ ___
 ### site 2
 **test performance**
 
-|   token      | precision | recall | f1-score | support |
+|   entity      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
 |         art  |     0.27   |   0.07  |    0.11  |      45 |
 |         eve  |     0.17   |   0.15  |    0.16  |      13 |
@@ -138,7 +138,7 @@ ___
 
 
 ***site1***
-|   token      | precision | recall | f1-score | support |
+|   entity      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
 |         art  |     0.30   |   0.16  |    0.21  |      19 |
 |         eve  |     0.50   |   0.19  |    0.27  |      16 |
@@ -154,7 +154,7 @@ ___
 
 ***site2***
 
-|   token      | precision | recall | f1-score | support |
+|   entity      | precision | recall | f1-score | support |
 |--------------|------------|---------|----------|---------|
 |         art  |     0.63   |   0.27  |    0.38  |      45 | 
 |         eve  |     0.30   |   0.23  |    0.26  |      13 | 

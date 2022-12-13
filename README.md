@@ -36,20 +36,20 @@ ___
 ___
 ### main metrics
 ***precision***
-$$
+```math
 precision = \frac{TP}{TP + FP}
-$$
+```
 
 ***recall***
-$$
+```math
 recall=\frac{TP}{TP + FN}
-$$
+```
 
 ***f1-score***
 
-$$
+```math
 F_1 = \frac{2 precision\times recall}{precision + recall}
-$$
+```
 
 ___
 
@@ -176,4 +176,3 @@ ___
 ___
 ## TODO
 - [ ] Use medical NLP data (have requested for [n2c2 NLP data](https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/))
-- [ ]

@@ -1,8 +1,8 @@
 # federated-multi-modality-learning
 
 
-## <a herf="https://www.kaggle.com/datasets/rajnathpatel/ner-data"> NER dataset from Kaggle </a>
-> code inherite from <a href="https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a"> this blog</a>
+## [NER dataset from Kaggle]("https://www.kaggle.com/datasets/rajnathpatel/ner-data")
+> code adapted from [this blog]("https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a")
 
 | Token | Description| Count (B) | Count (I) |
 | ------| :-----------:| :----: | :---: |
@@ -17,7 +17,7 @@
 |    O | assigned if a word doesn’t belong to any entity.| 887908| |
 
 ___
-## <a href="https://huggingface.co/bert-large-cased">Model</a>
+## [Model]("https://huggingface.co/bert-large-cased")
 
 
 >
@@ -29,7 +29,7 @@ In BERT uncased, the text has been lowercased before WordPiece tokenization step
 ___
 
 ## Evaluation Metric
-> take from <a href="https://github.com/chakki-works/seqeval">seqeval</a>
+> take from [seqeval]("https://github.com/chakki-works/seqeval")
 > 
 > :warning: seqeval supports the two evaluation modes. You can specify the following mode to each metrics: **default**, **strict** :warning:
 
@@ -53,7 +53,7 @@ $$
 
 ___
 
-### <a href="https://datascience.stackexchange.com/questions/36862/macro-or-micro-average-for-imbalanced-class-problems">aggregation schemes</a>
+### [aggregation schemes]("https://datascience.stackexchange.com/questions/36862/macro-or-micro-average-for-imbalanced-class-problems")
 
 ***micro average***
 
@@ -172,3 +172,8 @@ ___
 
 
 <img src='figs/fedavg_sim.png'/>
+
+___
+## TODO
+- [ ] Use medical NLP data (have requested for [n2c2 NLP data](https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/))
+- [ ]

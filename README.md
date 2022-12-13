@@ -1,7 +1,7 @@
 # federated-multi-modality-learning
 
 
-## [NER dataset from Kaggle]("https://www.kaggle.com/datasets/rajnathpatel/ner-data")
+## [NER dataset from Kaggle](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
 > code adapted from [this blog]("https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a")
 
 | entity | Description| Count (B) | Count (I) |
@@ -17,7 +17,7 @@
 |    O | assigned if a word doesn’t belong to any entity.| 887908| |
 
 ___
-## [Model]("https://huggingface.co/bert-large-cased")
+## [Model](https://huggingface.co/bert-large-cased)
 
 
 >
@@ -53,7 +53,7 @@ F_1 = \frac{2 precision\times recall}{precision + recall}
 
 ___
 
-### [aggregation schemes]("https://datascience.stackexchange.com/questions/36862/macro-or-micro-average-for-imbalanced-class-problems")
+### [aggregation schemes](https://datascience.stackexchange.com/questions/36862/macro-or-micro-average-for-imbalanced-class-problems)
 
 ***micro average***
 

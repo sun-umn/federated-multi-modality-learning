@@ -29,7 +29,7 @@ In BERT uncased, the text has been lowercased before WordPiece tokenization step
 ___
 
 ## Evaluation Metric
-> take from [seqeval]("https://github.com/chakki-works/seqeval")
+> take from [seqeval](https://github.com/chakki-works/seqeval)
 > 
 > :warning: seqeval supports the two evaluation modes. You can specify the following mode to each metrics: **default**, **strict** :warning:
 

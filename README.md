@@ -2,7 +2,7 @@
 
 
 ## [NER dataset from Kaggle](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
-> code adapted from [this blog]("https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a")
+> code adapted from [this blog](https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a)
 
 | entity | Description| Count (B) | Count (I) |
 | ------| :-----------:| :----: | :---: |

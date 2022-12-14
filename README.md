@@ -4,11 +4,8 @@
 ## [NER dataset from Kaggle](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
 > code adapted from [this blog](https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a)
 
-<<<<<<< HEAD
-| entity | Description| Count (B) | Count (I) |
-=======
+
 | Entity | Description| Count (B) | Count (I) |
->>>>>>> b7f26f3fc62fb2510bc14499f38fa0565312041b
 | ------| :-----------:| :----: | :---: |
 |    geo | geographical entity| 37644 |7414 |
 |    org | organization entity| 20143 | 16784|
@@ -176,10 +173,6 @@ ___
 
 
 <img src='figs/fedavg_sim.png'/>
-<<<<<<< HEAD
-
 ___
 ## TODO
 - [ ] Use medical NLP data (have requested for [n2c2 NLP data](https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/))
-=======
->>>>>>> b7f26f3fc62fb2510bc14499f38fa0565312041b

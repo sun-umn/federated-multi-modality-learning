@@ -1,11 +1,12 @@
 import torch
 from transformers import BertTokenizerFast
 from torch.utils.data import DataLoader
+from torch.utils.data.distributed import DistributedSampler
 
 
-def align_label(texts, labels, tokenizer, labels_to_ids, label_all_tokens=True):
+def align_label(texts, labels, tokenizer, labels_to_ids, label_all_tokens=True, max_length=150):
     
-    tokenized_inputs = tokenizer(texts, padding='max_length', max_length=512, truncation=True)
+    tokenized_inputs = tokenizer(texts, padding='max_length', max_length=max_length, truncation=True)
 
     word_ids = tokenized_inputs.word_ids()
 
@@ -33,10 +34,13 @@ def align_label(texts, labels, tokenizer, labels_to_ids, label_all_tokens=True):
 
 class DataSequence(torch.utils.data.Dataset):
 
-    def __init__(self, df):
+    def __init__(self, df, max_length=150):
         
         labels = [i.split() for i in df['labels'].values.tolist()]
         unique_labels = set()
+        # from collections import Counter
+        # print(labels)
+        # print(Counter([ll for l in labels for ll in l]))
         
         for lb in labels:
             [unique_labels.add(i) for i in lb if i not in unique_labels]
@@ -47,8 +51,8 @@ class DataSequence(torch.utils.data.Dataset):
         lb = [i.split() for i in df['labels'].values.tolist()]
         txt = df['text'].values.tolist()
         self.texts = [tokenizer(str(i),
-                               padding='max_length', max_length = 512, truncation=True, return_tensors="pt") for i in txt]
-        self.labels = [align_label(i,j, labels_to_ids=labels_to_ids, tokenizer=tokenizer) for i,j in zip(txt, lb)]
+                               padding='max_length', max_length = max_length, truncation=True, return_tensors="pt") for i in txt]
+        self.labels = [align_label(i,j, labels_to_ids=labels_to_ids, tokenizer=tokenizer, max_length=max_length) for i,j in zip(txt, lb)]
 
     def __len__(self):
 

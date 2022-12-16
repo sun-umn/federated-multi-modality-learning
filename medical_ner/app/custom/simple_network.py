@@ -1,8 +1,8 @@
 
 from transformers import BertForTokenClassification
-import torch
+import torch.nn as nn
 
-class BertModel(torch.nn.Module):
+class BertModel(nn.Module):
 
     def __init__(self, num_labels, model_name='bert-base-uncased'):
 

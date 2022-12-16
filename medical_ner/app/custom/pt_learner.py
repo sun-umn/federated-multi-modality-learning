@@ -98,8 +98,9 @@ class PTLearner(Learner):
         random.seed(seed)
         
         # Training setup
-        # self.model = BertModel(num_labels = len(unique_labels))
-        self.model = BertModel(num_labels = 19, model_name=self.model_name)
+        ## if need to change bert model Change the definication of Bert!
+        self.model = BertModel()
+        # self.model = BertModel(num_labels = 19, model_name=self.model_name)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if self.dataprallel:
             self.model = nn.parallel.DistributedDataParallel(self.model)
@@ -112,8 +113,8 @@ class PTLearner(Learner):
         df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
         df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
 
-        self.train_dataset = DataSequence(df_train, model_name=self.model_name)
-        self.test_dataset = DataSequence(df_val, model_name=self.model_name)
+        self.train_dataset = DataSequence(df_train, model_name=self.model.model_name)
+        self.test_dataset = DataSequence(df_val, model_name=self.model.model_name)
         self.train_loader = DataLoader(self.train_dataset, batch_size=self.bs, shuffle=True)
         self.test_loader = DataLoader(self.test_dataset, batch_size=self.bs, shuffle=False)
         self.n_iterations = len(self.train_loader)

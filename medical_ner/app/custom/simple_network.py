@@ -4,11 +4,12 @@ import torch.nn as nn
 
 class BertModel(nn.Module):
 
-    def __init__(self, num_labels, model_name='bert-base-uncased'):
+    def __init__(self):
 
         super(BertModel, self).__init__()
-
-        self.bert = BertForTokenClassification.from_pretrained(model_name, num_labels=num_labels, \
+        num_labels=19
+        self.model_name='bert-base-uncased'
+        self.bert = BertForTokenClassification.from_pretrained(self.model_name, num_labels=num_labels, \
                     output_attentions = False, \
                     output_hidden_states = False)
         

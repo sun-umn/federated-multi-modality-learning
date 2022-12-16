@@ -1,5 +1,7 @@
 # federated-multi-modality-learning
 
+## 2018 Track 2 ADE and medication extraction challenge
+
 
 ## [NER dataset from Kaggle](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
 > code adapted from [this blog](https://towardsdatascience.com/named-entity-recognition-with-bert-in-pytorch-a454405e0b6a)

@@ -20,7 +20,8 @@ from simple_network import BertModel
 from dataset import DataSequence
 from parse_metric_summary import parse_summary
 from torch import nn
-from torch.optim import SGD
+from torch.optim import SGD, AdamW
+from transformers import get_linear_schedule_with_warmup
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from torchvision.datasets import CIFAR10
@@ -103,7 +104,8 @@ class PTLearner(Learner):
             self.model = nn.parallel.DistributedDataParallel(self.model)
         self.model.to(self.device)
         self.loss = nn.CrossEntropyLoss()
-        self.optimizer = SGD(self.model.parameters(), lr=self.lr, momentum=0.9)
+        self.optimizer = AdamW(self.model.parameters(), lr=self.lr)
+        
 
         # Create dataset for training.
                 
@@ -116,6 +118,10 @@ class PTLearner(Learner):
         self.train_loader = DataLoader(self.train_dataset, batch_size=self.bs, shuffle=True)
         self.test_loader = DataLoader(self.test_dataset, batch_size=self.bs, shuffle=False)
         self.n_iterations = len(self.train_loader)
+        
+        self.scheduler = get_linear_schedule_with_warmup(self.optimizer, 
+                                            num_warmup_steps = 0,
+                                            num_training_steps = self.epochs*len(self.train_loader))
 
         # Set up the persistence manager to save PT model.
         # The default training configuration is used by persistence manager in case no initial model is found.
@@ -201,8 +207,11 @@ class PTLearner(Learner):
                 # print(mask.shape, input_id.shape, train_label.shape)
                 self.optimizer.zero_grad()
                 loss, logits = self.model(input_id, mask, train_label)
+                
                 loss.backward()
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0) ## optional
                 self.optimizer.step()
+                self.scheduler.step()
                 
                 for i in range(logits.shape[0]):
                     # remove padding tokens

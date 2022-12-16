@@ -27,9 +27,9 @@
       "path": "pt_learner.PTLearner",
       "args": {
         "data_path": "/workspace/src/data/2018_Track_2_ADE_and_medication_extraction_challenge/",
-        "lr": 5e-3,
+        "lr": 5e-5,
         "epochs": 1,
-        "bs": 16,
+        "bs": 32,
         "analytic_sender_id": "analytic_sender"
       }
     },

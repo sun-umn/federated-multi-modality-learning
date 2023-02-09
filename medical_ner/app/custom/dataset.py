@@ -1,10 +1,11 @@
 import torch
 from transformers import BertTokenizerFast
+from torch.utils.data import DataLoader
+from torch.utils.data.distributed import DistributedSampler
 import re
 
 
-def align_label(tokenized_inputs, origional_text, labels, labels_to_ids, tokenizer=None):
-
+def align_label(tokenized_inputs, origional_text, labels, labels_to_ids, label_all_tokens=False, tokenizer=None):
     null_label_id = -100
     label_ids = []
     origional_text = origional_text.split(" ")
@@ -43,8 +44,7 @@ def align_label(tokenized_inputs, origional_text, labels, labels_to_ids, tokeniz
             sub_str += re.sub("#+", "", cur_str)
             if sub_str == origional_text[orig_labels_i-1].lower():
                 partially_mathced = False
-                sub_str = str()
-            
+                sub_str = ""
 
     return label_ids
 
@@ -54,7 +54,7 @@ class DataSequence(torch.utils.data.Dataset):
         
         labels = [i.split() for i in df['labels'].values.tolist()]
         unique_labels = set()
-
+        
         for lb in labels:
             [unique_labels.add(i) for i in lb if i not in unique_labels]
         tokenizer = BertTokenizerFast.from_pretrained(model_name)
@@ -92,3 +92,14 @@ class DataSequence(torch.utils.data.Dataset):
         batch_labels = self.get_batch_labels(idx)
 
         return batch_data, batch_labels
+    
+
+def get_data(df_train, df_val, bs, model_name):
+    dls, stats = {}, {}
+    train_dataset = DataSequence(df_train, model_name=model_name)
+    val_dataset = DataSequence(df_val, model_name=model_name)
+    dls['train'] = DataLoader(train_dataset, num_workers=4, batch_size=bs, shuffle=True)
+    dls['val'] = DataLoader(val_dataset, num_workers=4, batch_size=bs)
+    stats['ids_to_labels'] = train_dataset.ids_to_labels
+    return dls, stats
+    

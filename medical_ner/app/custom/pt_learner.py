@@ -16,7 +16,7 @@ import os.path
 
 import torch
 from pt_constants import PTConstants
-from simple_network import BertModel
+from BERT import BertModel
 from dataset import DataSequence
 from parse_metric_summary import parse_summary
 from torch import nn

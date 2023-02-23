@@ -1,9 +1,55 @@
 # federated-multi-modality-learning
 
-## 2018 Track 2 ADE and medication extraction challenge
+## Quick Start
+
+## Installation
+___
+### Pull Git Repo
+```bash
+git clone git@github.com:PL97/federated-multi-modality-learning.git
+```
+
+### Pull Docker Image 
+```bash
+docker pull pytorch/pytorch:1.12.0-cuda11.3-cudnn8-runtime
+```
+run docker image inside of a container
+```bash
+export dockerImage=pytorch/pytorch:1.12.0-cuda11.3-cudnn8-runtime
+
+docker run -it --rm --shm-size=1G --gpus '"device=0"' \
+--ulimit memlock=-1 --ulimit stack=67108864 --ipc=host --net=host\
+    --mount type=bind,source=[PATH_TO_YOUR_DATA] \
+--mount type=bind,source=[PATH_TO_CODE],target=/workspace/src \
+$dockerImage /bin/bash
+```
+
+### Setup Nvflare Environment
+```bash
+## install NVDlare in a virtual environment
+sudo apt update
+sudo apt-get install python3-venv
+
+source nvflare-env/bin/activate || python -m venv nvflare-env && source nvflare-env/bin/activate 
+
+python3 -m pip install -U pip
+python3 -m pip install -U setuptools
+
+python3 -m pip install nvflare==2.2.1
+python3 -m pip install tensorboard
+python3 -m pip install torch torchvision transformers
+python3 -m pip install pandas
+python3 -m pip install seqeval
+```
+**Now you are ready to run the scripts!**
 
 
-## [NER dataset from Kaggle](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
+## NER using FedAvg with NVFlare
+___
+
+
+### 2018 Track 2 ADE and medication extraction challenge
+download the data here :point_right: [:link:](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
 
 
 | Entity | Description| Count (B) | Count (I) |
@@ -19,24 +65,19 @@
 |    O | assigned if a word doesn’t belong to any entity.| 887908| |
 
 ___
-## [Model](https://huggingface.co/bert-large-cased)
+### Model
+We use bert-base-uncase in this example, download the model :point_right: [:link:](https://huggingface.co/bert-base-uncased)
 
+*In BERT uncased, the text has been lowercased before WordPiece tokenization step while in BERT cased, the text is same as the input text (no changes).*
 
->
-bert-base-cased
-In BERT uncased, the text has been lowercased before WordPiece tokenization step while in BERT cased, the text is same as the input text (no changes).
-
-<span style="color:green">bert-large-cased</span>
 
 ___
 
-## Evaluation Metric
-> take from [seqeval](https://github.com/chakki-works/seqeval)
-> 
-> :warning: seqeval supports the two evaluation modes. You can specify the following mode to each metrics: **default**, **strict** :warning:
+### Evaluation Metric
+adapted from [seqeval](https://github.com/chakki-works/seqeval)
 
-___
-### main metrics
+:warning: seqeval supports the two evaluation modes. You can specify the following mode to each metrics: **default**, **strict** :warning:
+
 ***precision***
 ```math
 precision = \frac{TP}{TP + FP}
@@ -53,10 +94,6 @@ recall=\frac{TP}{TP + FN}
 F_1 = \frac{2 precision\times recall}{precision + recall}
 ```
 
-___
-
-### [aggregation schemes](https://datascience.stackexchange.com/questions/36862/macro-or-micro-average-for-imbalanced-class-problems)
-
 ***micro average***
 
 average samples (e.g. accuracy) to maximize the number of correct predictions the classifier makes
@@ -71,14 +108,11 @@ each classes’s contribution to the average is weighted by its size, lies in be
 
 
 ___
-*support count the number of sampling in each token*
 
 
 
-## Experiment Setup
+### Experiment Setup
 
-___
-### Federated Learning with NVFlare
 - algorithm: fedavg
 - random splits into two clients
     > client 1: train size 15346, val size 1918
@@ -88,13 +122,11 @@ ___
 - batch size 8
 - epoches 20 (set larger as fedavg coverge slower than pooled training)
 - aggregation weights: uniform (1:1)
+
+single client learning as a baseline
 ___
 
-### Single Client Learning
-same as FL but with 10 epoches
-___
-
-## Preliminary Results
+### Results
 ### site 1
 **test performance**
 
@@ -174,7 +206,16 @@ ___
 
 
 <img src='figs/fedavg_sim.png'/>
-___
-## TODO
 
-- [ ] Use medical NLP data (have requested for [n2c2 NLP data](https://portal.dbmi.hms.harvard.edu/projects/n2c2-nlp/))
+
+## How to cite this work
+___
+
+If you find this gitrepo useful, please consider citing it using the snippet below:
+```bibtex
+@misc{lePeng2022nvflare-nlp,
+    author={Le Peng},
+    title={{NVFlare-NLP: an Implementation of Federated Learing in NLP using NVFlare}},
+    howpublished={\url{https://github.com/PL97/federated-multi-modality-learning}},
+    year={2022}
+}

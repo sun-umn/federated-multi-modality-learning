@@ -17,7 +17,7 @@ import os.path
 import torch
 from pt_constants import PTConstants
 from BERT import BertModel
-from dataset import DataSequence
+from dataset import get_data
 from parse_metric_summary import parse_summary
 from torch import nn
 from torch.optim import SGD, AdamW
@@ -45,8 +45,10 @@ from nvflare.app_common.app_constant import AppConstants
 from nvflare.app_common.pt.pt_fed_utils import PTModelPersistenceFormatManager
 
 from seqeval.metrics import classification_report
-
-
+import numpy as np
+import random
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class PTLearner(Learner):
     def __init__(self, data_path="~/data", lr=0.01, epochs=5, bs=4, exclude_vars=None, analytic_sender_id="analytic_sender"):
@@ -63,13 +65,12 @@ class PTLearner(Learner):
         self.writer = None
         self.persistence_manager = None
         self.default_train_conf = None
-        self.test_loader = None
+        self.val_loader = None
         self.test_data = None
         self.n_iterations = None
         self.train_loader = None
         self.train_dataset = None
         self.optimizer = None
-        self.loss = None
         self.device = None
         self.model = None
         self.data_path = data_path
@@ -90,33 +91,26 @@ class PTLearner(Learner):
         client_name = fl_ctx.get_identity_name()
         self.client_name = fl_ctx.get_identity_name()
         
-        import numpy as np
-        import random
+        # fix the random seed
         seed = 0
         torch.manual_seed(seed)
         np.random.seed(seed)
         random.seed(seed)
         
         # Training setup
-        ## if need to change bert model Change the definication of Bert!
         self.model = BertModel()
-        # self.model = BertModel(num_labels = 19, model_name=self.model_name)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        if self.dataprallel:
-            self.model = nn.parallel.DistributedDataParallel(self.model)
         self.model.to(self.device)
-        self.loss = nn.CrossEntropyLoss()
         self.optimizer = AdamW(self.model.parameters(), lr=self.lr)
         
 
         # Create dataset for training.
         df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
         df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
-
-        self.train_dataset = DataSequence(df_train, model_name=self.model.model_name)
-        self.test_dataset = DataSequence(df_val, model_name=self.model.model_name)
-        self.train_loader = DataLoader(self.train_dataset, batch_size=self.bs, shuffle=True)
-        self.test_loader = DataLoader(self.test_dataset, batch_size=self.bs, shuffle=False)
+        dls, stats = get_data(df_train=df_train, df_val=df_val, bs=self.bs, tokenizer=self.model.tokenizer)
+        self.ids_to_labels = stats['ids_to_labels']
+        
+        self.train_loader, self.val_loader = dls['train'], dls['val']
         self.n_iterations = len(self.train_loader)
         
         self.scheduler = get_linear_schedule_with_warmup(self.optimizer, 
@@ -135,6 +129,7 @@ class PTLearner(Learner):
         if not self.writer:  # else use local TensorBoard writer only
             self.writer = SummaryWriter(fl_ctx.get_prop(FLContextKey.APP_ROOT))
         
+        # print out data stats
         print("-"*50, f"initialize: {self.client_name}", "-"*50)
         print(
             f'''
@@ -195,7 +190,7 @@ class PTLearner(Learner):
             self.model.train()
             total_acc_train, total_loss_train, train_total = 0, 0, 0
             y_pred, y_true = [], []
-            label_map = self.train_loader.dataset.ids_to_labels
+            label_map = self.ids_to_labels 
             for batch in self.train_loader:
                 if abort_signal.triggered:
                     return
@@ -328,8 +323,8 @@ class PTLearner(Learner):
             test_total = 0
             y_pred = []
             y_true = []
-            label_map = self.train_loader.dataset.ids_to_labels
-            for test_data, test_label in self.test_loader:
+            label_map = self.ids_to_labels 
+            for test_data, test_label in self.val_loader:
                 if abort_signal.triggered:
                     return
                 test_total += test_label.shape[0]

@@ -7,6 +7,8 @@ ___
 ### Pull Git Repo
 ```bash
 git clone git@github.com:PL97/federated-multi-modality-learning.git
+
+cd federated-multi-modality-learning
 ```
 
 ### Pull Docker Image 
@@ -42,27 +44,18 @@ python3 -m pip install pandas
 python3 -m pip install seqeval
 ```
 **Now you are ready to run the scripts!**
-
+Simply run 
+```bash
+sudo chmod +x simulate.sh
+./simulate.sh
+```
 
 ## NER using FedAvg with NVFlare
 ___
 
 
 ### 2018 Track 2 ADE and medication extraction challenge
-download the data here :point_right: [:link:](https://www.kaggle.com/datasets/rajnathpatel/ner-data)
-
-
-| Entity | Description| Count (B) | Count (I) |
-| ------| :-----------:| :----: | :---: |
-|    geo | geographical entity| 37644 |7414 |
-|    org | organization entity| 20143 | 16784|
-|    per | person entity|16990 |17251 |
-|    gpe | geopolitical entity|15870 | 198|
-|    tim | time indicator entity| 20333| 6528|
-|    art | artifact entity| 402| 297|
-|    eve | event entity| 308| 253|
-|    nat | natural phenomenon entity|201 |51 |
-|    O | assigned if a word doesn’t belong to any entity.| 887908| |
+download the data here :point_right: [:link:](https://www.kaggle.com/datasets/rajnathpatel/ner-data). processed data can be found here :point_right: [:link:](https://drive.google.com/drive/folders/17IoViGyrczEvgQrFcx_e96Cl9108_bq2?usp=share_link)
 
 ___
 ### Model
@@ -115,12 +108,12 @@ ___
 
 - algorithm: fedavg
 - random splits into two clients
-    > client 1: train size 15346, val size 1918
+    > client 1: train size 27408, val size 3046
     > 
-    > client 2: train size 15347, val size 1918
-- learning rate $5\times10^{-3}$
-- batch size 8
-- epoches 20 (set larger as fedavg coverge slower than pooled training)
+    > client 2: train size 27409, val size 3046
+- learning rate $5\times10^{-5}$
+- batch size 32
+- epoches 50 (set larger as fedavg coverge slower than pooled training)
 - aggregation weights: uniform (1:1)
 
 single client learning as a baseline
@@ -130,38 +123,14 @@ ___
 ### site 1
 **test performance**
 
-|   entity      | precision | recall | f1-score | support |
-|--------------|------------|---------|----------|---------|
-|         art  |     0.06   |   0.05  |    0.06  |      19 |
-|         eve  |     0.11   |   0.06  |    0.08  |      16 |
-|         geo  |     0.79   |   0.84  |    0.82  |    1819 |
-|         gpe  |     0.91   |   0.92  |    0.92  |     731 |
-|         nat  |     0.33   |   0.17  |    0.22  |       6 |
-|         org  |     0.65   |   0.63  |    0.64  |     991 |
-|         per  |     0.70   |   0.77  |    0.73  |     907 |
-|         tim  |     0.79   |   0.80  |    0.79  |     854 |
-|   micro avg  |     0.76   |   0.79  |    0.78  |    5343 |
-|   macro avg  |     0.54   |   0.53  |    0.53  |    5343 |
-|weighted avg  |     0.76   |   0.79  |    0.77  |    5343 |
+
 
 <img src='figs/site1.png'/>
 
 ### site 2
 **test performance**
 
-|   entity      | precision | recall | f1-score | support |
-|--------------|------------|---------|----------|---------|
-|         art  |     0.27   |   0.07  |    0.11  |      45 |
-|         eve  |     0.17   |   0.15  |    0.16  |      13 |
-|         geo  |     0.81   |   0.87  |    0.84  |    1773 |
-|         gpe  |     0.90   |   0.90  |    0.90  |     640 |
-|         nat  |     0.00   |   0.00  |    0.00  |      12 |
-|         org  |     0.69   |   0.65  |    0.67  |    1045 |
-|         per  |     0.75   |   0.73  |    0.74  |     940 |
-|         tim  |     0.82   |   0.81  |    0.81  |     859 |
-|   micro avg  |     0.79   |   0.79  |    0.79  |    5327 |
-|   macro avg  |     0.55   |   0.52  |    0.53  |    5327 |
-|weighted avg  |     0.78   |   0.79  |    0.78  |    5327 |
+
 
 
 <img src='figs/site2.png'/>
@@ -172,36 +141,9 @@ ___
 
 
 ***site1***
-|   entity      | precision | recall | f1-score | support |
-|--------------|------------|---------|----------|---------|
-|         art  |     0.30   |   0.16  |    0.21  |      19 |
-|         eve  |     0.50   |   0.19  |    0.27  |      16 |
-|         geo  |     0.84   |   0.85  |    0.84  |    1819 |
-|         gpe  |     0.93   |   0.94  |    0.94  |     731 |
-|         nat  |     0.00   |   0.00  |    0.00  |       6 |
-|         org  |     0.69   |   0.65  |    0.67  |     991 |
-|         per  |     0.72   |   0.79  |    0.76  |     907 |
-|         tim  |     0.84   |   0.80  |    0.82  |     854 |
-|   micro avg  |     0.80   |   0.80  |    0.80  |    5343 |
-|   macro avg  |     0.60   |   0.55  |    0.56  |    5343 |
-|weighted avg  |     0.80   |   0.80  |    0.80  |    5343 |
+
 
 ***site2***
-
-|   entity      | precision | recall | f1-score | support |
-|--------------|------------|---------|----------|---------|
-|         art  |     0.63   |   0.27  |    0.38  |      45 | 
-|         eve  |     0.30   |   0.23  |    0.26  |      13 | 
-|         geo  |     0.84   |   0.87  |    0.86  |    1773 | 
-|         gpe  |     0.93   |   0.93  |    0.93  |     640 | 
-|         nat  |     0.00   |   0.00  |    0.00  |      12 | 
-|         org  |     0.70   |   0.69  |    0.69  |    1045 | 
-|         per  |     0.74   |   0.76  |    0.75  |     940 | 
-|         tim  |     0.84   |   0.82  |    0.83  |     859 | 
-|   micro avg  |     0.80   |   0.80  |    0.80  |    5327 | 
-|   macro avg  |     0.62   |   0.57  |    0.59  |    5327 | 
-|weighted avg  |     0.80   |   0.80  |    0.80  |    5327 | 
-
 
 
 
@@ -215,7 +157,7 @@ If you find this gitrepo useful, please consider citing it using the snippet bel
 ```bibtex
 @misc{lePeng2022nvflare-nlp,
     author={Le Peng},
-    title={{NVFlare-NLP: an Implementation of Federated Learing in NLP using NVFlare}},
+    title={{an Implementation of Federated Learing in NLP using NVFlare}},
     howpublished={\url{https://github.com/PL97/federated-multi-modality-learning}},
     year={2022}
 }

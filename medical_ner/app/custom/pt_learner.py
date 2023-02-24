@@ -231,7 +231,7 @@ class PTLearner(Learner):
             val_metric_dict['macro avg']['acc'] = val_metric
             
             global_epoches = self.global_round*self.epochs+epoch
-            for metric_name in ['loss', 'acc', 'f1-score']:
+            for metric_name in ['loss', 'acc', 'f1-score', 'precision', 'recall']:
                 self.writer.add_scalars(f'{metric_name}', {
                     "train": metric_dict['macro avg'][metric_name],
                     "validation":  val_metric_dict['macro avg'][metric_name],

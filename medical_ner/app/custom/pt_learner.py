@@ -97,6 +97,9 @@ class PTLearner(Learner):
         np.random.seed(seed)
         random.seed(seed)
         
+        # setup for amp
+        self.scaler = torch.cuda.amp.GradScaler()
+        
         # Training setup
         self.model = BertModel()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -201,12 +204,13 @@ class PTLearner(Learner):
                 input_id = train_data['input_ids'].squeeze(1).to(self.device)
                 # print(mask.shape, input_id.shape, train_label.shape)
                 self.optimizer.zero_grad()
-                loss, logits = self.model(input_id, mask, train_label)
+                with torch.cuda.amp.autocast():
+                    loss, logits = self.model(input_id, mask, train_label)
                 
-                loss.backward()
-                torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0) ## optional
-                self.optimizer.step()
-                self.scheduler.step()
+                self.scaler.scale(loss).backward()
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+                
                 
                 for i in range(logits.shape[0]):
                     # remove padding tokens
@@ -219,6 +223,7 @@ class PTLearner(Learner):
                     total_acc_train += acc
                     total_loss_train += loss.item()
 
+            self.scheduler.step()
             # Stream training, validation metrics at the end of each epoch
             metric_summary = classification_report(y_true, y_pred)
             metric_dict = parse_summary(metric_summary)
@@ -245,8 +250,8 @@ class PTLearner(Learner):
                 self.best_metric_higher_prefered = val_metric_dict['macro avg']['f1-score']
             
             ## log and print the evaluation results
-            print(f"global epoches: {self.global_round} training : {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
-            print(f"global epoches: {self.global_round} val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
+            print(f"global epochs: {self.global_round} training : {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
+            print(f"global epochs: {self.global_round} val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
             self.log_info(
                         fl_ctx, f"train:\n{metric_summary}\n==========================================================\nval:\n{val_metric_summary}"
                     )
@@ -332,8 +337,8 @@ class PTLearner(Learner):
                 input_id = test_data['input_ids'].squeeze(1).to(self.device)
                 test_label = test_label.to(self.device)
                 self.optimizer.zero_grad()
-
-                loss, logits = self.model(input_id, mask, test_label)
+                with torch.cuda.amp.autocast():
+                    loss, logits = self.model(input_id, mask, test_label)
                 
                 for i in range(logits.shape[0]):
                     logits_clean = logits[i][test_label[i] != -100]

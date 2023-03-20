@@ -1,0 +1,1 @@
+2023-02-09 13:11:57,396 - SimulatorRunner - ERROR - Simulator setup error: ('Failed to call nvidia-smi with query index', '')

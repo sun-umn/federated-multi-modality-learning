@@ -26,10 +26,10 @@
       "id": "pt_learner",
       "path": "pt_learner.PTLearner",
       "args": {
-        "data_path": "/workspace/src/data",
-        "lr": 5e-3,
+        "data_path": "/workspace/src/data/2018_n2c2/2_split/",
+        "lr": 5e-5,
         "epochs": 1,
-        "bs": 16,
+        "bs": 32,
         "analytic_sender_id": "analytic_sender"
       }
     },

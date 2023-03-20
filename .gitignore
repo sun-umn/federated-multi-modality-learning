@@ -9,7 +9,8 @@ tf1_ner/
 
 ## log files and saved files
 *.pt
-*.txt
+medical_ner/*.txt
+nvflare-env/
 # *.png
 # *.jpg
 # *.jpeg

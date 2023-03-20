@@ -16,11 +16,12 @@ import os.path
 
 import torch
 from pt_constants import PTConstants
-from simple_network import BertModel
-from dataset import DataSequence
+from BERT import BertModel
+from dataset import get_data
 from parse_metric_summary import parse_summary
 from torch import nn
-from torch.optim import SGD
+from torch.optim import SGD, AdamW
+from transformers import get_linear_schedule_with_warmup
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from torchvision.datasets import CIFAR10
@@ -44,8 +45,10 @@ from nvflare.app_common.app_constant import AppConstants
 from nvflare.app_common.pt.pt_fed_utils import PTModelPersistenceFormatManager
 
 from seqeval.metrics import classification_report
-
-
+import numpy as np
+import random
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class PTLearner(Learner):
     def __init__(self, data_path="~/data", lr=0.01, epochs=5, bs=4, exclude_vars=None, analytic_sender_id="analytic_sender"):
@@ -62,13 +65,12 @@ class PTLearner(Learner):
         self.writer = None
         self.persistence_manager = None
         self.default_train_conf = None
-        self.test_loader = None
+        self.val_loader = None
         self.test_data = None
         self.n_iterations = None
         self.train_loader = None
         self.train_dataset = None
         self.optimizer = None
-        self.loss = None
         self.device = None
         self.model = None
         self.data_path = data_path
@@ -81,6 +83,7 @@ class PTLearner(Learner):
         self.best_metric_higher_prefered = -float('inf')
         self.best_metric_lower_prefered = float('inf')
         self.global_round = 0 
+        self.model_name = "bert-base-uncased"
         
 
 
@@ -88,34 +91,34 @@ class PTLearner(Learner):
         client_name = fl_ctx.get_identity_name()
         self.client_name = fl_ctx.get_identity_name()
         
-        import numpy as np
-        import random
+        # fix the random seed
         seed = 0
         torch.manual_seed(seed)
         np.random.seed(seed)
         random.seed(seed)
         
+        # setup for amp
+        self.scaler = torch.cuda.amp.GradScaler()
+        
         # Training setup
-        # self.model = BertModel(num_labels = len(unique_labels))
         self.model = BertModel()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        if self.dataprallel:
-            self.model = nn.parallel.DistributedDataParallel(self.model)
         self.model.to(self.device)
-        self.loss = nn.CrossEntropyLoss()
-        self.optimizer = SGD(self.model.parameters(), lr=self.lr, momentum=0.9)
+        self.optimizer = AdamW(self.model.parameters(), lr=self.lr)
+        
 
         # Create dataset for training.
-                
         df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
         df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
-
-
-        self.train_dataset = DataSequence(df_train)
-        self.test_dataset = DataSequence(df_val)
-        self.train_loader = DataLoader(self.train_dataset, batch_size=self.bs, shuffle=True)
-        self.test_loader = DataLoader(self.test_dataset, batch_size=self.bs, shuffle=False)
+        dls, stats = get_data(df_train=df_train, df_val=df_val, bs=self.bs, tokenizer=self.model.tokenizer)
+        self.ids_to_labels = stats['ids_to_labels']
+        
+        self.train_loader, self.val_loader = dls['train'], dls['val']
         self.n_iterations = len(self.train_loader)
+        
+        self.scheduler = get_linear_schedule_with_warmup(self.optimizer, 
+                                            num_warmup_steps = 0,
+                                            num_training_steps = self.epochs*len(self.train_loader))
 
         # Set up the persistence manager to save PT model.
         # The default training configuration is used by persistence manager in case no initial model is found.
@@ -129,6 +132,7 @@ class PTLearner(Learner):
         if not self.writer:  # else use local TensorBoard writer only
             self.writer = SummaryWriter(fl_ctx.get_prop(FLContextKey.APP_ROOT))
         
+        # print out data stats
         print("-"*50, f"initialize: {self.client_name}", "-"*50)
         print(
             f'''
@@ -189,7 +193,7 @@ class PTLearner(Learner):
             self.model.train()
             total_acc_train, total_loss_train, train_total = 0, 0, 0
             y_pred, y_true = [], []
-            label_map = self.train_loader.dataset.ids_to_labels
+            label_map = self.ids_to_labels 
             for batch in self.train_loader:
                 if abort_signal.triggered:
                     return
@@ -200,9 +204,13 @@ class PTLearner(Learner):
                 input_id = train_data['input_ids'].squeeze(1).to(self.device)
                 # print(mask.shape, input_id.shape, train_label.shape)
                 self.optimizer.zero_grad()
-                loss, logits = self.model(input_id, mask, train_label)
-                loss.backward()
-                self.optimizer.step()
+                with torch.cuda.amp.autocast():
+                    loss, logits = self.model(input_id, mask, train_label)
+                
+                self.scaler.scale(loss).backward()
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+                
                 
                 for i in range(logits.shape[0]):
                     # remove padding tokens
@@ -215,6 +223,7 @@ class PTLearner(Learner):
                     total_acc_train += acc
                     total_loss_train += loss.item()
 
+            self.scheduler.step()
             # Stream training, validation metrics at the end of each epoch
             metric_summary = classification_report(y_true, y_pred)
             metric_dict = parse_summary(metric_summary)
@@ -227,7 +236,7 @@ class PTLearner(Learner):
             val_metric_dict['macro avg']['acc'] = val_metric
             
             global_epoches = self.global_round*self.epochs+epoch
-            for metric_name in ['loss', 'acc', 'f1-score']:
+            for metric_name in ['loss', 'acc', 'f1-score', 'precision', 'recall']:
                 self.writer.add_scalars(f'{metric_name}', {
                     "train": metric_dict['macro avg'][metric_name],
                     "validation":  val_metric_dict['macro avg'][metric_name],
@@ -241,8 +250,8 @@ class PTLearner(Learner):
                 self.best_metric_higher_prefered = val_metric_dict['macro avg']['f1-score']
             
             ## log and print the evaluation results
-            print(f"global epoches: {self.global_round} training : {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
-            print(f"global epoches: {self.global_round} val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
+            print(f"global epochs: {self.global_round} training : {epoch}/{self.epochs}: \n{metric_summary}\nF1-score: {metric_dict['macro avg']['acc']}", )
+            print(f"global epochs: {self.global_round} val {epoch}/{self.epochs}: \n{val_metric_summary}\nF1-score: {val_metric_dict['macro avg']['acc']}")
             self.log_info(
                         fl_ctx, f"train:\n{metric_summary}\n==========================================================\nval:\n{val_metric_summary}"
                     )
@@ -319,8 +328,8 @@ class PTLearner(Learner):
             test_total = 0
             y_pred = []
             y_true = []
-            label_map = self.train_loader.dataset.ids_to_labels
-            for test_data, test_label in self.test_loader:
+            label_map = self.ids_to_labels 
+            for test_data, test_label in self.val_loader:
                 if abort_signal.triggered:
                     return
                 test_total += test_label.shape[0]
@@ -328,8 +337,8 @@ class PTLearner(Learner):
                 input_id = test_data['input_ids'].squeeze(1).to(self.device)
                 test_label = test_label.to(self.device)
                 self.optimizer.zero_grad()
-
-                loss, logits = self.model(input_id, mask, test_label)
+                with torch.cuda.amp.autocast():
+                    loss, logits = self.model(input_id, mask, test_label)
                 
                 for i in range(logits.shape[0]):
                     logits_clean = logits[i][test_label[i] != -100]

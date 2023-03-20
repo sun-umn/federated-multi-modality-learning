@@ -6,6 +6,7 @@ class BertModel(nn.Module):
 
     def __init__(self):
         super(BertModel, self).__init__()
+        print("asdfasdfasdfa-==============================-0=-0=-0=-0=-0=00000000000000")
         num_labels=19
         self.model_name='bert-base-uncased'
         self.bert = AutoModelForTokenClassification.from_pretrained(self.model_name, num_labels=num_labels, \

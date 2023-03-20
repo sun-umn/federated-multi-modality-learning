@@ -1,5 +1,7 @@
 # federated-multi-modality-learning
 
+**model does not state_dict but is a dict type, then try to re activate the env**
+
 ## Quick Start
 
 ## Installation
@@ -117,37 +119,11 @@ ___
 - aggregation weights: uniform (1:1)
 
 single client learning as a baseline
-___
-
-### Results
-### site 1
-**test performance**
-
-
-
-<img src='figs/site1.png'/>
-
-### site 2
-**test performance**
-
-
-
-
-<img src='figs/site2.png'/>
 
 ___
 ### FedAvg
 
-
-
-***site1***
-
-
-***site2***
-
-
-
-<img src='figs/fedavg_sim.png'/>
+<img src='figs/nvflarefed.png'/>
 
 
 ## How to cite this work

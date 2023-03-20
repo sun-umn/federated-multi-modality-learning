@@ -1,10 +1,14 @@
 # federated-multi-modality-learning
 
+
+**model does not state_dict but is a dict type, then try to re activate the env**
+
 ## Quick Start
 
 ## Installation
 ___
 ### Pull Git Repo
+
 ```bash
 git clone git@github.com:PL97/federated-multi-modality-learning.git
 
@@ -57,6 +61,30 @@ ___
 ### 2018 Track 2 ADE and medication extraction challenge
 download the data here :point_right: [:link:](https://www.kaggle.com/datasets/rajnathpatel/ner-data). processed data can be found here :point_right: [:link:](https://drive.google.com/drive/folders/17IoViGyrczEvgQrFcx_e96Cl9108_bq2?usp=share_link)
 
+python3 -m pip install nvflare==2.2.1
+python3 -m pip install tensorboard
+python3 -m pip install torch torchvision transformers
+python3 -m pip install pandas
+python3 -m pip install seqeval
+```
+**Now you are ready to run the scripts!**
+Simply run 
+```bash
+sudo chmod +x simulate.sh
+./simulate.sh
+```
+
+## NER using FedAvg with NVFlare
+___
+### Model
+We use bert-base-uncase in this example, download the model :point_right: [:link:](https://huggingface.co/bert-base-uncased)
+
+*In BERT uncased, the text has been lowercased before WordPiece tokenization step while in BERT cased, the text is same as the input text (no changes).*
+
+
+### 2018 Track 2 ADE and medication extraction challenge
+download the data here :point_right: [:link:](https://www.kaggle.com/datasets/rajnathpatel/ner-data). processed data can be found here :point_right: [:link:](https://drive.google.com/drive/folders/17IoViGyrczEvgQrFcx_e96Cl9108_bq2?usp=share_link)
+
 ___
 ### Model
 We use bert-base-uncase in this example, download the model :point_right: [:link:](https://huggingface.co/bert-base-uncased)
@@ -65,7 +93,6 @@ We use bert-base-uncase in this example, download the model :point_right: [:link
 
 
 ___
-
 ### Evaluation Metric
 adapted from [seqeval](https://github.com/chakki-works/seqeval)
 
@@ -116,39 +143,10 @@ ___
 - epoches 50 (set larger as fedavg coverge slower than pooled training)
 - aggregation weights: uniform (1:1)
 
-single client learning as a baseline
-___
-
-### Results
-### site 1
-**test performance**
-
-
-
-<img src='figs/site1.png'/>
-
-### site 2
-**test performance**
-
-
-
-
-<img src='figs/site2.png'/>
-
 ___
 ### FedAvg
 
-
-
-***site1***
-
-
-***site2***
-
-
-
-<img src='figs/fedavg_sim.png'/>
-
+<img src='figs/nvflarefed.png'/>
 
 ## How to cite this work
 ___

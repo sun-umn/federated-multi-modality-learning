@@ -48,6 +48,7 @@ from seqeval.metrics import classification_report
 import numpy as np
 import random
 import os
+import re
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class PTLearner(Learner):
@@ -101,15 +102,19 @@ class PTLearner(Learner):
         self.scaler = torch.cuda.amp.GradScaler()
         
         # Training setup
+
+        ## Create dataset for training.
+        df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
+        df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
+        # df_combined = pd.read_csv(os.path.join(re.sub('[0-9]+_split', '', self.data_path), "combined.csv"))
+        num_classes = len(set(df_train.labels))
+
         self.model = BertModel()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
         self.optimizer = AdamW(self.model.parameters(), lr=self.lr)
-        
 
-        # Create dataset for training.
-        df_train = pd.read_csv(os.path.join(self.data_path, client_name+"_train.csv"))
-        df_val = pd.read_csv(os.path.join(self.data_path, client_name+"_val.csv"))
+
         dls, stats = get_data(df_train=df_train, df_val=df_val, bs=self.bs, tokenizer=self.model.tokenizer)
         self.ids_to_labels = stats['ids_to_labels']
         
@@ -223,7 +228,7 @@ class PTLearner(Learner):
                     total_acc_train += acc
                     total_loss_train += loss.item()
 
-            self.scheduler.step()
+                self.scheduler.step()
             # Stream training, validation metrics at the end of each epoch
             metric_summary = classification_report(y_true, y_pred)
             metric_dict = parse_summary(metric_summary)

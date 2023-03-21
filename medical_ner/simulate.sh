@@ -3,11 +3,7 @@
 # rm -rf ./$1
 # nvflare simulator -w ./$1 -n 2 -t 1 -gpu 0,1 . > log.txt
 
-<<<<<<< HEAD
-readonly workspace=workspace_2018_n2c2
-=======
-readonly workspace=workspace_2018_n2c2_trail2
->>>>>>> v1.0
+readonly workspace=workspace_BC5CDR-disease
 
 
 rm -rf ./$workspace

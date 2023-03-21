@@ -123,7 +123,7 @@ class PTLearner(Learner):
         
         self.scheduler = get_linear_schedule_with_warmup(self.optimizer, 
                                             num_warmup_steps = 0,
-                                            num_training_steps = self.epochs*len(self.train_loader))
+                                            num_training_steps = 50*self.epochs*len(self.train_loader))
 
         # Set up the persistence manager to save PT model.
         # The default training configuration is used by persistence manager in case no initial model is found.

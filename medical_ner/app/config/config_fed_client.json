@@ -26,7 +26,7 @@
       "id": "pt_learner",
       "path": "pt_learner.PTLearner",
       "args": {
-        "data_path": "/workspace/src/NER_orig/BC5CDR-disease/2_split/",
+        "data_path": "/workspace/src/NER_orig/NCBI-disease/2_split/",
         "lr": 5e-5,
         "epochs": 1,
         "bs": 32,

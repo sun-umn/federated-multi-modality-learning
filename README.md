@@ -146,7 +146,7 @@ ___
 <img src='figs/nvflarefed.png'/>
 
 ## Acknowledgement
-This work was supported by Cisco Research. We also acknowledge the Minnesota
+This work was supported by Cisco Research. We acknowledge the Minnesota
 Supercomputing Institute (MSI) at the University of Minnesota for providing resources that contributed to the results. We also thank Dr. Rui Zhang and his student Sicheng Zhou for providing medical data resource and discussion. 
 
 ## How to cite this work

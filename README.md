@@ -146,7 +146,7 @@ ___
 <img src='figs/nvflarefed.png'/>
 
 ## Acknowledgment
-We would like to express our gratitude to Cisco Research for their support of this work. Additionally, we acknowledge the Minnesota Supercomputing Institute (MSI) at the University of Minnesota for their valuable contribution of resources that aided in producing the results presented in this work. We extend our appreciation to Dr. Rui Zhang and his student Sicheng Zhou for their insightful discussions, which greatly benefited this project.
+We would like to express our gratitude to Cisco Research for their support of this work. Additionally, we acknowledge the Minnesota Supercomputing Institute (MSI) at the University of Minnesota for computation resources that aided in producing the results presented in this work. We extend our appreciation to Dr. Rui Zhang and his student Sicheng Zhou for their insightful discussions!
 
 ## How to cite this work
 ___

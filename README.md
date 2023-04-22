@@ -1,8 +1,5 @@
 # federated-multi-modality-learning
 
-
-**model does not state_dict but is a dict type, then try to re activate the env**
-
 ## Quick Start
 
 ## Installation

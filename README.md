@@ -1,4 +1,4 @@
-# federated-multi-modality-learning
+# Federated Learning for NLP using NVFlare
 
 ## Quick Start
 

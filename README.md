@@ -151,11 +151,11 @@ We would like to express our gratitude to Cisco Research for their support of th
 ## How to cite this work
 ___
 
-If you find this gitrepo useful, please consider citing it using the snippet below:
+If you find this gitrepo useful, please consider citing the associated paper using the snippet below:
 ```bibtex
-@misc{lePeng2022nvflare-nlp,
-    author={Le Peng},
-    title={{an Implementation of Federated Learning in NLP using NVFlare}},
-    howpublished={\url{https://github.com/PL97/federated-multi-modality-learning}},
-    year={2022}
+@article{peng2023systematic,
+  title={A Systematic Evaluation of Federated Learning on Biomedical Natural Language Processing},
+  author={Peng, Le and Zhang, Rui and Xu, Ziyue and Sun, Ju and others},
+  journal={arXiv preprint arXiv:2307.11254},
+  year={2023}
 }

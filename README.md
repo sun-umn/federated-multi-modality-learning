@@ -1,4 +1,4 @@
-# Federated Learning for NLP using NVFlare
+# An Implementation of Federated Learning in NLP using NVFlare
 
 ## Quick Start
 
@@ -155,7 +155,7 @@ If you find this gitrepo useful, please consider citing it using the snippet bel
 ```bibtex
 @misc{lePeng2022nvflare-nlp,
     author={Le Peng},
-    title={{an Implementation of Federated Learing in NLP using NVFlare}},
+    title={{an Implementation of Federated Learning in NLP using NVFlare}},
     howpublished={\url{https://github.com/PL97/federated-multi-modality-learning}},
     year={2022}
 }
